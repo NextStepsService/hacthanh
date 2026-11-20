@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gia Đình Hạc Thành - Dịch Vụ Gia Đình Uy Tín Tại Thanh Hóa</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            primary: '#00B14F',
+                            accent: '#F59E0B',
+                            accentHover: '#D97706'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(236, 253, 245, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(209, 250, 229, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-brand-700 text-white text-xs sm:text-sm py-2 px-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="bg-brand-accent text-slate-900 text-xs font-bold px-2 py-0.5 rounded-full uppercase">Thí điểm</span>
+                <span class="hidden sm:inline">Phục vụ ưu tiên cụm Hạc Thành & khu đô thị Thanh Hóa</span>
+                <span class="sm:hidden">Ưu tiên cụm đô thị Hạc Thành</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="tel:0912345678" class="hover:text-brand-100 font-semibold transition"><i class="fa-solid fa-phone me-1"></i> Hotline: 0912.345.678</a>
+                <span class="hidden md:inline text-slate-300">|</span>
+                <span class="hidden md:inline"><i class="fa-solid fa-shield-halved me-1"></i> Chuẩn SOP 3 ngày đào tạo</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-600 to-brand-500 flex items-center justify-center text-white shadow-md shadow-brand-500/30 group-hover:scale-105 transition duration-300">
+                        <i class="fa-solid fa-feather-pointed text-2xl"></i>
+                    </div>
+                    <div>
+                        <div class="font-extrabold text-xl sm:text-2xl tracking-tight text-slate-900">GIA ĐÌNH <span class="text-brand-600">HẠC THÀNH</span></div>
+                        <div class="text-[10px] sm:text-xs font-semibold text-slate-500 uppercase tracking-wider">Dịch Vụ Chăm Sóc Gia Đình</div>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-8 font-medium text-slate-700 text-sm">
+                    <a href="#hero" class="hover:text-brand-600 transition">Trang chủ</a>
+                    
+                    <!-- Dropdown Services -->
+                    <div class="relative group">
+                        <button class="flex items-center space-x-1 hover:text-brand-600 py-2 transition">
+                            <span>Dịch vụ</span>
+                            <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-hover:rotate-180 transition"></i>
+                        </button>
+                        <div class="absolute top-full -left-4 w-72 bg-white rounded-2xl shadow-xl border border-slate-100 py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <a href="#services" onclick="openBookingModal('DN03')" class="flex items-start px-4 py-3 hover:bg-brand-50 transition">
+                                <div class="w-9 h-9 rounded-xl bg-emerald-100 text-brand-600 flex items-center justify-center me-3 shrink-0">
+                                    <i class="fa-solid fa-broom"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-slate-900 text-sm">Dọn nhà theo giờ (DN03)</div>
+                                    <div class="text-xs text-slate-500">Ca 3h chuyên sâu theo checklist</div>
+                                </div>
+                            </a>
+                            <a href="#services" onclick="openBookingModal('BV04')" class="flex items-start px-4 py-3 hover:bg-brand-50 transition">
+                                <div class="w-9 h-9 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center me-3 shrink-0">
+                                    <i class="fa-solid fa-hospital-user"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-slate-900 text-sm">Đồng hành tại viện (BV04/08)</div>
+                                    <div class="text-xs text-slate-500">Hỗ trợ sinh hoạt người bệnh tại viện</div>
+                                </div>
+                            </a>
+                            <a href="#services" onclick="openBookingModal('NT04')" class="flex items-start px-4 py-3 hover:bg-brand-50 transition">
+                                <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center me-3 shrink-0">
+                                    <i class="fa-solid fa-heart-pulse"></i>
+                                </div>
+                                <div>
+                                    <div class="font-semibold text-slate-900 text-sm">Hỗ trợ người cao tuổi (NT04/08)</div>
+                                    <div class="text-xs text-slate-500">Đồng hành & chăm sóc sinh hoạt tại nhà</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="#pricing" class="hover:text-brand-600 transition">Bảng giá</a>
+                    <a href="#sop" class="hover:text-brand-600 transition">Cam kết SOP</a>
+                    <a href="#process" class="hover:text-brand-600 transition">Quy trình</a>
+                    <a href="#coverage" class="hover:text-brand-600 transition">Khu vực</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden sm:flex items-center space-x-3">
+                    <button onclick="openBookingModal()" class="bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm px-5 py-2.5 rounded-xl shadow-md shadow-brand-500/20 hover:shadow-lg hover:shadow-brand-500/30 transition duration-200 flex items-center space-x-2">
+                        <i class="fa-regular fa-calendar-check text-base"></i>
+                        <span>Đặt Ca Ngay</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobileDrawer" class="hidden lg:hidden border-t border-slate-100 bg-white px-4 pt-3 pb-6 space-y-3">
+            <a href="#hero" class="block py-2 font-medium text-slate-700 hover:text-brand-600">Trang chủ</a>
+            <div class="font-medium text-slate-400 text-xs uppercase tracking-wider pt-2">Dịch vụ chính</div>
+            <a href="#services" onclick="openBookingModal('DN03')" class="block pl-3 py-1.5 text-sm font-medium text-slate-700">• Dọn nhà theo giờ (DN03)</a>
+            <a href="#services" onclick="openBookingModal('BV04')" class="block pl-3 py-1.5 text-sm font-medium text-slate-700">• Đồng hành tại viện (BV04/08)</a>
+            <a href="#services" onclick="openBookingModal('NT04')" class="block pl-3 py-1.5 text-sm font-medium text-slate-700">• Hỗ trợ người cao tuổi (NT04/08)</a>
+            <a href="#pricing" class="block py-2 font-medium text-slate-700 hover:text-brand-600">Bảng giá minh bạch</a>
+            <a href="#sop" class="block py-2 font-medium text-slate-700 hover:text-brand-600">Tiêu chuẩn an toàn</a>
+            <div class="pt-2">
+                <button onclick="openBookingModal()" class="w-full bg-brand-600 text-white font-semibold py-3 rounded-xl shadow">Đặt Ca Nhanh Chóng</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-bg relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Headline Content -->
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-brand-100 text-brand-700 text-xs sm:text-sm font-bold px-3 py-1.5 rounded-full mb-6 border border-brand-500/20 shadow-sm">
+                        <i class="fa-solid fa-circle-check text-brand-600"></i>
+                        <span>Mô Hình Quản Lý Dịch Vụ Gia Đình Chuẩn SOP Đầu Tiên Tại Thanh Hóa</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
+                        Dịch Vụ Chăm Sóc Gia Đình <br class="hidden sm:inline">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-emerald-500">Uy Tín & Thấu Hiểu</span> Tại Thanh Hóa
+                    </h1>
+
+                    <p class="text-slate-600 text-base sm:text-lg mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Từ dọn dẹp nhà cửa tận tâm 3 giờ đến đồng hành chăm sóc sinh hoạt người thân tại viện & tại nhà. Minh bạch giá cả, nhân sự xác minh rõ ràng, sẵn sàng nhận ca tức thì.
+                    </p>
+
+                    <!-- Trust Stats -->
+                    <div class="grid grid-cols-3 gap-4 pt-4 border-t border-slate-200/60 max-w-lg mx-auto lg:mx-0 text-left">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-brand-600">3 Ngày</div>
+                            <div class="text-xs text-slate-500 font-medium">Đào tạo & sát hạch độc lập</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-slate-900">100%</div>
+                            <div class="text-xs text-slate-500 font-medium">Khăn lau màu riêng từng khu</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-brand-accent">229.000đ</div>
+                            <div class="text-xs text-slate-500 font-medium">Gói dọn nhà 3 giờ chuẩn</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Quick Booking Widget -->
+                <div class="lg:col-span-5">
+                    <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-2xl shadow-brand-600/10 relative">
+                        <div class="absolute -top-3.5 right-6 bg-brand-accent text-slate-900 text-xs font-bold px-3 py-1 rounded-full uppercase shadow">
+                            <i class="fa-solid fa-bolt me-1"></i> Đặt lịch 60s
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Đặt Ca Trực Tuyến Nhanh</h3>
+                        <p class="text-xs text-slate-500 mb-6">Chọn thông tin để nhận báo giá & điều phối chuyên viên</p>
+
+                        <form id="heroBookingForm" onsubmit="handleHeroSubmit(event)" class="space-y-4">
+                            <!-- Service Selector -->
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Loại dịch vụ</label>
+                                <div class="relative">
+                                    <select id="heroServiceSelect" class="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 p-3 appearance-none font-medium">
+                                        <option value="DN03">Dọn nhà theo giờ (DN03 - 3 Giờ) - 229.000đ</option>
+                                        <option value="BV04">Đồng hành tại viện 4h (BV04) - 390.000đ</option>
+                                        <option value="BV08">Đồng hành tại viện 8h (BV08) - 670.000đ</option>
+                                        <option value="NT04">Hỗ trợ người cao tuổi 4h (NT04) - 320.000đ</option>
+                                        <option value="NT08">Hỗ trợ người cao tuổi 8h (NT08) - 580.000đ</option>
+                                    </select>
+                                    <i class="fa-solid fa-chevron-down absolute right-4 top-4 text-xs text-slate-400 pointer-events-none"></i>
+                                </div>
+                            </div>
+
+                            <!-- Location Select -->
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Khu vực phục vụ</label>
+                                <div class="relative">
+                                    <select id="heroLocationSelect" class="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 p-3 appearance-none font-medium">
+                                        <option value="Hạc Thành">Cụm Đô thị Hạc Thành (Đông Vệ, Đông Hải)</option>
+                                        <option value="Quảng Phú">Cụm Cư Dân Quảng Phú</option>
+                                        <option value="BV Thành Phố">BV Đa Khoa TP. Thanh Hóa</option>
+                                        <option value="BV Tỉnh">BV Đa Khoa Tỉnh Thanh Hóa</option>
+                                        <option value="Sầm Sơn">Khu căn hộ Sầm Sơn (Bàn giao)</option>
+                                    </select>
+                                    <i class="fa-solid fa-location-dot absolute right-4 top-3.5 text-brand-600 pointer-events-none"></i>
+                                </div>
+                            </div>
+
+                            <!-- Date and Phone Row -->
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Ngày thực hiện</label>
+                                    <input type="date" id="heroDate" required class="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl focus:ring-2 focus:ring-brand-500 p-3 font-medium">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Số điện thoại</label>
+                                    <input type="tel" id="heroPhone" placeholder="09x xxx xxxx" required class="w-full bg-slate-50 border border-slate-200 text-slate-800 text-sm rounded-xl focus:ring-2 focus:ring-brand-500 p-3 font-medium">
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="w-full bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-700 hover:to-brand-600 text-white font-bold text-base py-3.5 px-6 rounded-xl shadow-lg shadow-brand-500/30 hover:shadow-xl transition duration-200 flex items-center justify-center space-x-2">
+                                <span>Xác Nhận Đặt Lịch Ca</span>
+                                <i class="fa-solid fa-arrow-right text-sm"></i>
+                            </button>
+                        </form>
+                        
+                        <div class="mt-4 flex items-center justify-center space-x-4 text-xs text-slate-500">
+                            <span><i class="fa-solid fa-shield text-brand-600 me-1"></i> Miễn phí đổi lịch 12h trước ca</span>
+                            <span>•</span>
+                            <span>Bảo mật thông tin</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE SERVICES SECTION -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-md">Danh Mục Dịch Vụ Mở Bán</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight">Ba Nhóm Dịch Vụ Ưu Tiên Hàng Đầu</h2>
+                <p class="text-slate-600 mt-3 text-base">Thiết kế riêng cho các hộ gia đình tại Thanh Hóa với quy chuẩn ranh giới công việc rõ ràng & an toàn tuyệt đối.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Service 1: Dọn Nhà Theo Giờ -->
+                <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200/80 hover:border-brand-500/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-brand-600 flex items-center justify-center text-2xl group-hover:scale-110 transition duration-300">
+                                <i class="fa-solid fa-broom"></i>
+                            </div>
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Mã: DN03</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Dọn Nhà Theo Giờ (3 Giờ)</h3>
+                        <div class="flex items-baseline space-x-2 mb-4">
+                            <span class="text-3xl font-extrabold text-brand-600">229.000đ</span>
+                            <span class="text-xs text-slate-500 font-medium">/ ca 180 phút</span>
+                        </div>
+
+                        <p class="text-xs text-slate-600 mb-6 leading-relaxed">
+                            Một chuyên viên thực hiện theo danh sách ưu tiên. Sử dụng khăn microfiber phân màu riêng cho Bếp & Nhà tắm, an toàn hóa chất.
+                        </p>
+
+                        <!-- Checklist -->
+                        <div class="space-y-2.5 mb-6 border-t border-slate-200/80 pt-4 text-xs text-slate-700">
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-brand-600"></i>
+                                <span><strong>Bếp:</strong> Lau mặt bàn, chậu rửa, rửa bát đĩa cơ bản</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-brand-600"></i>
+                                <span><strong>WC & Tắm:</strong> Bồn cầu, lavabo, vòi, gương & lau sàn</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-brand-600"></i>
+                                <span><strong>Khách & Phụ:</strong> Quét/hút bụi, lau sàn, kệ tủ trống</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-brand-600"></i>
+                                <span><strong>Phòng ngủ:</strong> Gấp đồ đơn giản, thay bộ ga giường</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="openBookingModal('DN03')" class="w-full bg-white hover:bg-brand-600 text-slate-800 hover:text-white font-bold py-3 rounded-xl border border-slate-300 hover:border-brand-600 transition duration-200 flex items-center justify-center space-x-2 text-sm shadow-sm">
+                        <span>Đặt Ca Dọn Nhà</span>
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Service 2: Đồng Hành Tại Viện -->
+                <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200/80 hover:border-blue-500/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-2xl group-hover:scale-110 transition duration-300">
+                                <i class="fa-solid fa-hospital-user"></i>
+                            </div>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Mã: BV04 / BV08</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Đồng Hành Tại Bệnh Viện</h3>
+                        <div class="flex items-baseline space-x-2 mb-4">
+                            <span class="text-xs text-slate-500 font-medium">Từ</span>
+                            <span class="text-3xl font-extrabold text-blue-600">390.000đ</span>
+                            <span class="text-xs text-slate-500 font-medium">/ ca 4h ban ngày</span>
+                        </div>
+
+                        <p class="text-xs text-slate-600 mb-6 leading-relaxed">
+                            Hỗ trợ người thân khi gia đình bận rộn. Có mặt ở cạnh người bệnh, hỗ trợ ăn uống nhẹ & báo gọi điều dưỡng kịp thời.
+                        </p>
+
+                        <!-- Checklist -->
+                        <div class="space-y-2.5 mb-6 border-t border-slate-200/80 pt-4 text-xs text-slate-700">
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-blue-600"></i>
+                                <span><strong>Hiện diện 100%:</strong> Ở cạnh trò chuyện & đưa đồ đạc</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-blue-600"></i>
+                                <span><strong>Sinh hoạt:</strong> Hỗ trợ người tự ăn/uống an toàn theo khoa</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-blue-600"></i>
+                                <span><strong>Báo y tế:</strong> Bấm chuông/gọi điều dưỡng khi cần trợ giúp</span>
+                            </div>
+                            <div class="flex items-center space-x-2 text-slate-400">
+                                <i class="fa-solid fa-xmark text-red-400"></i>
+                                <span><em>Không tiêm truyền / Không thao tác y khoa</em></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="openBookingModal('BV04')" class="w-full bg-white hover:bg-blue-600 text-slate-800 hover:text-white font-bold py-3 rounded-xl border border-slate-300 hover:border-blue-600 transition duration-200 flex items-center justify-center space-x-2 text-sm shadow-sm">
+                        <span>Đặt Ca Tại Bệnh Viện</span>
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Service 3: Hỗ Trợ Người Cao Tuổi Tại Nhà -->
+                <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200/80 hover:border-amber-500/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl group-hover:scale-110 transition duration-300">
+                                <i class="fa-solid fa-heart-pulse"></i>
+                            </div>
+                            <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Mã: NT04 / NT08</span>
+                        </div>
+
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Hỗ Trợ Người Cao Tuổi Tại Nhà</h3>
+                        <div class="flex items-baseline space-x-2 mb-4">
+                            <span class="text-xs text-slate-500 font-medium">Từ</span>
+                            <span class="text-3xl font-extrabold text-amber-600">320.000đ</span>
+                            <span class="text-xs text-slate-500 font-medium">/ ca 4h ban ngày</span>
+                        </div>
+
+                        <p class="text-xs text-slate-600 mb-6 leading-relaxed">
+                            Đồng hành chu đáo cùng ông bà cha mẹ. Chuẩn bị bữa ăn đơn giản từ thực đơn có sẵn, dọn góc sinh hoạt gọn gàng.
+                        </p>
+
+                        <!-- Checklist -->
+                        <div class="space-y-2.5 mb-6 border-t border-slate-200/80 pt-4 text-xs text-slate-700">
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-amber-600"></i>
+                                <span><strong>Đồng hành:</strong> Trò chuyện, đọc báo, nhắc nếp sinh hoạt</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-amber-600"></i>
+                                <span><strong>Bữa ăn:</strong> Hâm/chuẩn bị món đơn giản theo thực đơn</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-amber-600"></i>
+                                <span><strong>Hỗ trợ nhẹ:</strong> Quét dọn lối đi an toàn, thay đồ nhẹ</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-amber-600"></i>
+                                <span><strong>Bàn giao:</strong> Nhật ký bàn giao chi tiết cho người nhà</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="openBookingModal('NT04')" class="w-full bg-white hover:bg-amber-600 text-slate-800 hover:text-white font-bold py-3 rounded-xl border border-slate-300 hover:border-amber-600 transition duration-200 flex items-center justify-center space-x-2 text-sm shadow-sm">
+                        <span>Đặt Ca Chăm Tại Nhà</span>
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TRANSPARENT PRICING TABLE SECTION -->
+    <section id="pricing" class="py-20 bg-slate-50 border-y border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-100/60 px-3 py-1 rounded-md">Minh Bạch Tuyệt Đối</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight">Bảng Giá Tham Chiếu & Thời Lượng Ca</h2>
+                <p class="text-slate-600 mt-3 text-base">Giá trọn gói báo trước ca - Không phát sinh chi phí ẩn - Nhận ca minh bạch.</p>
+            </div>
+
+            <!-- Pricing Table Card -->
+            <div class="bg-white rounded-3xl shadow-lg border border-slate-200/80 overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-900 text-white text-xs uppercase tracking-wider">
+                                <th class="p-4 sm:p-5 font-bold">Mã Dịch Vụ</th>
+                                <th class="p-4 sm:p-5 font-bold">Tên Gói & Thời Lượng</th>
+                                <th class="p-4 sm:p-5 font-bold">Mức Giá Thuần Đề Xuất</th>
+                                <th class="p-4 sm:p-5 font-bold">Phạm Vi Cốt Lõi</th>
+                                <th class="p-4 sm:p-5 font-bold">Hành Động</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-sm">
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-4 sm:p-5 font-bold text-brand-600">DN03</td>
+                                <td class="p-4 sm:p-5">
+                                    <div class="font-bold text-slate-900">Dọn nhà tiêu chuẩn</div>
+                                    <div class="text-xs text-slate-500">1 Chuyên viên × 3 Giờ</div>
+                                </td>
+                                <td class="p-4 sm:p-5 font-extrabold text-slate-900">229.000 VNĐ</td>
+                                <td class="p-4 sm:p-5 text-xs text-slate-600 max-w-xs leading-relaxed">
+                                    Dọn phòng khách, bếp, nhà tắm & phòng ngủ theo danh sách ưu tiên đã chốt.
+                                </td>
+                                <td class="p-4 sm:p-5">
+                                    <button onclick="openBookingModal('DN03')" class="bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition">Chọn Gói</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-4 sm:p-5 font-bold text-blue-600">BV04</td>
+                                <td class="p-4 sm:p-5">
+                                    <div class="font-bold text-slate-900">Đồng hành tại viện (Nửa ngày)</div>
+                                    <div class="text-xs text-slate-500">Ca 4 Giờ ban ngày</div>
+                                </td>
+                                <td class="p-4 sm:p-5 font-extrabold text-slate-900">390.000 VNĐ</td>
+                                <td class="p-4 sm:p-5 text-xs text-slate-600 max-w-xs leading-relaxed">
+                                    Túc trực tại giường, hỗ trợ ăn uống nhẹ, gọi điều dưỡng khi có dấu hiệu bất thường.
+                                </td>
+                                <td class="p-4 sm:p-5">
+                                    <button onclick="openBookingModal('BV04')" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition">Chọn Gói</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-4 sm:p-5 font-bold text-blue-600">BV08</td>
+                                <td class="p-4 sm:p-5">
+                                    <div class="font-bold text-slate-900">Đồng hành tại viện (Cả ngày)</div>
+                                    <div class="text-xs text-slate-500">Ca 8 Giờ ban ngày</div>
+                                </td>
+                                <td class="p-4 sm:p-5 font-extrabold text-slate-900">670.000 VNĐ</td>
+                                <td class="p-4 sm:p-5 text-xs text-slate-600 max-w-xs leading-relaxed">
+                                    Hỗ trợ sinh hoạt nguyên ca ban ngày, có lịch nghỉ bàn giao chuyên nghiệp giữa ca.
+                                </td>
+                                <td class="p-4 sm:p-5">
+                                    <button onclick="openBookingModal('BV08')" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition">Chọn Gói</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-4 sm:p-5 font-bold text-amber-600">NT04</td>
+                                <td class="p-4 sm:p-5">
+                                    <div class="font-bold text-slate-900">Hỗ trợ người cao tuổi (Nửa ngày)</div>
+                                    <div class="text-xs text-slate-500">Ca 4 Giờ tại nhà</div>
+                                </td>
+                                <td class="p-4 sm:p-5 font-extrabold text-slate-900">320.000 VNĐ</td>
+                                <td class="p-4 sm:p-5 text-xs text-slate-600 max-w-xs leading-relaxed">
+                                    Trò chuyện, hỗ trợ ăn uống đơn giản, nhắc lịch sinh hoạt, bàn giao nhật ký ca.
+                                </td>
+                                <td class="p-4 sm:p-5">
+                                    <button onclick="openBookingModal('NT04')" class="bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition">Chọn Gói</button>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-slate-50/80 transition">
+                                <td class="p-4 sm:p-5 font-bold text-amber-600">NT08</td>
+                                <td class="p-4 sm:p-5">
+                                    <div class="font-bold text-slate-900">Hỗ trợ người cao tuổi (Cả ngày)</div>
+                                    <div class="text-xs text-slate-500">Ca 8 Giờ tại nhà (Không trực đêm)</div>
+                                </td>
+                                <td class="p-4 sm:p-5 font-extrabold text-slate-900">580.000 VNĐ</td>
+                                <td class="p-4 sm:p-5 text-xs text-slate-600 max-w-xs leading-relaxed">
+                                    Chăm sóc sinh hoạt ban ngày chu đáo, chuẩn bị bữa ăn nhẹ, dọn gọn khu sinh hoạt.
+                                </td>
+                                <td class="p-4 sm:p-5">
+                                    <button onclick="openBookingModal('NT08')" class="bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition">Chọn Gói</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="bg-slate-100/70 p-4 text-xs text-slate-500 border-t border-slate-200 flex flex-wrap justify-between items-center gap-2">
+                    <span>* Giá thực thu áp dụng theo khu vực & thời điểm chốt đơn qua điều phối.</span>
+                    <span>* Tiền công & dụng cụ đã bao gồm đầy đủ trong báo giá.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOP & SAFETY COMMITMENTS SECTION -->
+    <section id="sop" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-md">Quy Trình Chuẩn Hóa</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3 tracking-tight">Tại Sao Gia Đình Chọn Hạc Thành?</h2>
+                <p class="text-slate-600 mt-3 text-base">Chúng tôi không chỉ cung cấp dịch vụ dọn dẹp, mà xây dựng niềm tin bằng kỷ luật & quy chuẩn an toàn cao nhất.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Feature 1 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-brand-500/30 transition">
+                    <div class="w-12 h-12 rounded-xl bg-brand-500 text-white flex items-center justify-center text-xl mb-4 shadow-md shadow-brand-500/20">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-lg mb-2">Đào Tạo 3 Ngày Chuẩn</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Đội ngũ thực hiện đều trải qua 3 ngày huấn luyện thực hành, đạt trên 80/100 điểm sát hạch trước khi được nhận ca độc lập.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-brand-500/30 transition">
+                    <div class="w-12 h-12 rounded-xl bg-brand-500 text-white flex items-center justify-center text-xl mb-4 shadow-md shadow-brand-500/20">
+                        <i class="fa-solid fa-pump-soap"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-lg mb-2">Hóa Chất An Toàn</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Sử dụng sản phẩm có nhãn mác rõ ràng (như enzyme gốc thực vật Fuwa3e), tách biệt khăn lau bếp & khăn WC tuyệt đối.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-brand-500/30 transition">
+                    <div class="w-12 h-12 rounded-xl bg-brand-500 text-white flex items-center justify-center text-xl mb-4 shadow-md shadow-brand-500/20">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-lg mb-2">Sàng Lọc Minh Bạch</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Lý lịch nhân sự rõ ràng. Ranh giới dịch vụ minh bạch, không nhận công việc y khoa ngoài thẩm quyền để đảm bảo an toàn.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-brand-500/30 transition">
+                    <div class="w-12 h-12 rounded-xl bg-brand-500 text-white flex items-center justify-center text-xl mb-4 shadow-md shadow-brand-500/20">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-lg mb-2">Đổi Hủy Linh Hoạt</h4>
+                    <p class="text-slate-600 text-xs leading-relaxed">
+                        Hỗ trợ đổi/hủy lịch miễn phí trước 12h. Phản hồi xử lý sự cố chất lượng trong 24h qua hotline điều phối duy nhất.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4 STEP BOOKING PROCESS -->
+    <section id="process" class="py-20 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-500 font-bold text-xs uppercase tracking-widest bg-brand-500/10 px-3 py-1 rounded-md border border-brand-500/20">Đơn Giản & Nhanh Chóng</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-3 tracking-tight">Quy Trình 4 Bước Đặt Ca</h2>
+                <p class="text-slate-400 mt-3 text-base">Trải nghiệm dịch vụ nhanh chóng, minh bạch từ bước đăng ký đến nghiệm thu.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+                
+                <!-- Step 1 -->
+                <div class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700 relative">
+                    <div class="w-10 h-10 rounded-full bg-brand-500 text-slate-900 font-extrabold flex items-center justify-center mb-4 text-lg">1</div>
+                    <h4 class="text-lg font-bold mb-2">Chọn Dịch Vụ & Giờ</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Điền thông tin đặt lịch online hoặc nhắn tin Zalo với bộ phận điều phối.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700 relative">
+                    <div class="w-10 h-10 rounded-full bg-brand-500 text-slate-900 font-extrabold flex items-center justify-center mb-4 text-lg">2</div>
+                    <h4 class="text-lg font-bold mb-2">Xác Nhận & Báo Giá</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Chốt danh sách ưu tiên, khoản khách chuẩn bị và mã số nhân viên phụ trách.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700 relative">
+                    <div class="w-10 h-10 rounded-full bg-brand-500 text-slate-900 font-extrabold flex items-center justify-center mb-4 text-lg">3</div>
+                    <h4 class="text-lg font-bold mb-2">Thực Hiện Theo SOP</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Chuyên viên đến đúng giờ, thực hiện tác phong chuẩn & đúng phạm vi.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700 relative">
+                    <div class="w-10 h-10 rounded-full bg-brand-500 text-slate-900 font-extrabold flex items-center justify-center mb-4 text-lg">4</div>
+                    <h4 class="text-lg font-bold mb-2">Nghiệm Thu & Bàn Giao</h4>
+                    <p class="text-xs text-slate-400 leading-relaxed">Khách hàng kiểm tra ca, ký nhận bàn giao & đánh giá chất lượng dịch vụ.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS & COVERAGE AREA -->
+    <section id="coverage" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left: Coverage Area -->
+                <div class="lg:col-span-6">
+                    <span class="text-brand-600 font-bold text-xs uppercase tracking-widest bg-brand-50 px-3 py-1 rounded-md">Địa Bàn Phục Vụ</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mt-3 mb-6">Mật Độ Phục Vụ Tại Thanh Hóa</h2>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                        Nhằm đảm bảo chuyên viên đến đúng giờ và giữ vững chất lượng, Hạc Thành ưu tiên tập trung theo tuyến và các cụm đô thị trọng điểm:
+                    </p>
+
+                    <div class="space-y-3 mb-8">
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <i class="fa-solid fa-building-user text-brand-600 text-lg"></i>
+                                <div>
+                                    <div class="font-bold text-slate-900 text-sm">Cụm Đô Thị Hạc Thành</div>
+                                    <div class="text-xs text-slate-500">Phường Đông Vệ, Đông Hải và lân cận</div>
+                                </div>
+                            </div>
+                            <span class="bg-emerald-100 text-brand-700 text-xs font-bold px-2.5 py-1 rounded">Ưu tiên hàng đầu</span>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <i class="fa-solid fa-city text-brand-600 text-lg"></i>
+                                <div>
+                                    <div class="font-bold text-slate-900 text-sm">Cụm Dân Cư Quảng Phú</div>
+                                    <div class="text-xs text-slate-500">Khu dân cư hiện hữu & căn hộ</div>
+                                </div>
+                            </div>
+                            <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2.5 py-1 rounded">Mở rộng tuyến</span>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+                            <div class="flex items-center space-x-3">
+                                <i class="fa-solid fa-umbrella-beach text-brand-600 text-lg"></i>
+                                <div>
+                                    <div class="font-bold text-slate-900 text-sm">Tuyến Căn Hộ Sầm Sơn</div>
+                                    <div class="text-xs text-slate-500">Dọn bàn giao & vệ sinh lưu trú</div>
+                                </div>
+                            </div>
+                            <span class="bg-amber-100 text-amber-700 text-xs font-bold px-2.5 py-1 rounded">Đặt lịch trước</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Customer Reviews -->
+                <div class="lg:col-span-6 bg-slate-50 p-8 rounded-3xl border border-slate-200/80">
+                    <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center space-x-2">
+                        <i class="fa-solid fa-star text-amber-400"></i>
+                        <span>Đánh Giá Từ Khách Hàng</span>
+                    </h3>
+
+                    <div class="space-y-6">
+                        <!-- Review 1 -->
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
+                            <div class="flex items-center space-x-1 text-amber-400 text-xs mb-2">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-slate-700 text-xs italic mb-3">
+                                "Nhà mình ở Đông Vệ, gọi ca dọn 3 tiếng DN03. Bạn nhân viên dọn rất kỹ phần bếp và WC, dùng khăn riêng tách màu làm mình rất yên tâm!"
+                            </p>
+                            <div class="font-bold text-slate-900 text-xs">— Chị Lê Mai (Cư dân Đông Vệ, Hạc Thành)</div>
+                        </div>
+
+                        <!-- Review 2 -->
+                        <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
+                            <div class="flex items-center space-x-1 text-amber-400 text-xs mb-2">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-slate-700 text-xs italic mb-3">
+                                "Khi mẹ mình nằm điều trị tại BV Đa Khoa TP, mình thuê gói BV04 của Hạc Thành. Bạn nhân viên lễ phép, túc trực liên tục giúp gia đình rất nhẹ nhõm."
+                            </p>
+                            <div class="font-bold text-slate-900 text-xs">— Anh Trần Thanh (Thành phố Thanh Hóa)</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center text-white">
+                            <i class="fa-solid fa-feather-pointed text-xl"></i>
+                        </div>
+                        <span class="text-white font-extrabold text-lg">HẠC THÀNH</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                        Công ty Dịch vụ Gia đình Hạc Thành - Giải pháp chăm sóc gia đình chuyên nghiệp, an toàn & tận tâm hàng đầu tại Thanh Hóa.
+                    </p>
+                    <div class="text-xs text-slate-500">
+                        © 2026 Hạc Thành Home Services.
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="text-white text-sm font-bold mb-4 uppercase tracking-wider">Dịch Vụ Mở Bán</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#services" onclick="openBookingModal('DN03')" class="hover:text-white transition">Dọn nhà 3 giờ (DN03)</a></li>
+                        <li><a href="#services" onclick="openBookingModal('BV04')" class="hover:text-white transition">Đồng hành tại viện 4h (BV04)</a></li>
+                        <li><a href="#services" onclick="openBookingModal('BV08')" class="hover:text-white transition">Đồng hành tại viện 8h (BV08)</a></li>
+                        <li><a href="#services" onclick="openBookingModal('NT04')" class="hover:text-white transition">Hỗ trợ người cao tuổi 4h (NT04)</a></li>
+                        <li><a href="#services" onclick="openBookingModal('NT08')" class="hover:text-white transition">Hỗ trợ người cao tuổi 8h (NT08)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Operational Principles -->
+                <div>
+                    <h4 class="text-white text-sm font-bold mb-4 uppercase tracking-wider">Cam Kết Quản Lý</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li>• Sát hạch nhân sự 100 điểm</li>
+                        <li>• Tách riêng bộ khăn màu Bếp/WC</li>
+                        <li>• Hóa chất an toàn gốc thực vật</li>
+                        <li>• Báo giá minh bạch trước ca</li>
+                        <li>• Nhật ký bàn giao ca chi tiết</li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact & Hotline -->
+                <div>
+                    <h4 class="text-white text-sm font-bold mb-4 uppercase tracking-wider">Liên Hệ Đặt Ca</h4>
+                    <div class="space-y-3 text-xs">
+                        <div class="flex items-start space-x-3">
+                            <i class="fa-solid fa-location-dot text-brand-500 mt-0.5"></i>
+                            <span>Cụm Đô thị Hạc Thành, Phường Đông Vệ, TP. Thanh Hóa</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-phone text-brand-500"></i>
+                            <a href="tel:0912345678" class="font-bold text-white hover:text-brand-500">0912.345.678 (Hotline/Zalo)</a>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-clock text-brand-500"></i>
+                            <span>Tiếp nhận lịch: 07:00 - 21:00 hàng ngày</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-slate-900 text-center text-xs text-slate-500">
+                Gia Đình Hạc Thành - Phục vụ bằng sự tử tế và chu đáo.
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE BOOKING MODAL & CALCULATOR -->
+    <div id="bookingModal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full shadow-2xl overflow-hidden relative max-h-[90vh] flex flex-col">
+            
+            <!-- Modal Header -->
+            <div class="bg-slate-900 text-white p-6 relative">
+                <button onclick="closeBookingModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="flex items-center space-x-2 text-brand-500 text-xs font-bold uppercase tracking-wider mb-1">
+                    <i class="fa-solid fa-calculator"></i>
+                    <span>Tính Cước & Đặt Ca Direct</span>
+                </div>
+                <h3 class="text-xl font-extrabold text-white">Đăng Ký Ca Phục Vụ Hạc Thành</h3>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-6 overflow-y-auto space-y-4 text-slate-800">
+                
+                <!-- Select Package -->
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Dịch vụ đăng ký</label>
+                    <select id="modalPkg" onchange="calculateModalPrice()" class="w-full bg-slate-50 border border-slate-200 text-sm rounded-xl p-3 font-medium">
+                        <option value="DN03">Dọn nhà theo giờ (DN03 - 3 Giờ) - 229.000đ</option>
+                        <option value="BV04">Đồng hành tại viện 4h (BV04) - 390.000đ</option>
+                        <option value="BV08">Đồng hành tại viện 8h (BV08) - 670.000đ</option>
+                        <option value="NT04">Hỗ trợ người cao tuổi 4h (NT04) - 320.000đ</option>
+                        <option value="NT08">Hỗ trợ người cao tuổi 8h (NT08) - 580.000đ</option>
+                    </select>
+                </div>
+
+                <!-- Priority Areas Checkbox (For Cleaning) -->
+                <div id="cleanChecklistGroup">
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Ưu tiên khu vực (Chọn tối đa 3)</label>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <label class="flex items-center space-x-2 p-2 rounded-lg bg-slate-50 border border-slate-200">
+                            <input type="checkbox" checked class="rounded text-brand-600 focus:ring-brand-500">
+                            <span>Bếp & Chậu rửa</span>
+                        </label>
+                        <label class="flex items-center space-x-2 p-2 rounded-lg bg-slate-50 border border-slate-200">
+                            <input type="checkbox" checked class="rounded text-brand-600 focus:ring-brand-500">
+                            <span>Nhà tắm & WC</span>
+                        </label>
+                        <label class="flex items-center space-x-2 p-2 rounded-lg bg-slate-50 border border-slate-200">
+                            <input type="checkbox" checked class="rounded text-brand-600 focus:ring-brand-500">
+                            <span>Phòng khách & Sàn</span>
+                        </label>
+                        <label class="flex items-center space-x-2 p-2 rounded-lg bg-slate-50 border border-slate-200">
+                            <input type="checkbox" class="rounded text-brand-600 focus:ring-brand-500">
+                            <span>Thay ga phòng ngủ</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Input User Information -->
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Họ & Tên khách hàng</label>
+                        <input type="text" id="modalName" placeholder="Nguyễn Văn A" class="w-full bg-slate-50 border border-slate-200 text-sm rounded-xl p-2.5">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Số điện thoại</label>
+                        <input type="tel" id="modalPhone" placeholder="09x xxx xxxx" class="w-full bg-slate-50 border border-slate-200 text-sm rounded-xl p-2.5">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Địa chỉ cụ thể tại Thanh Hóa</label>
+                    <input type="text" id="modalAddress" placeholder="Số nhà, tên đường, Phường/Cụm..." class="w-full bg-slate-50 border border-slate-200 text-sm rounded-xl p-2.5">
+                </div>
+
+                <!-- Price Summary Box -->
+                <div class="p-4 rounded-2xl bg-brand-50 border border-brand-200 flex justify-between items-center">
+                    <div>
+                        <div class="text-xs text-brand-800 font-bold">Tổng chi phí dự tính</div>
+                        <div class="text-xs text-slate-500">Đã bao gồm dụng cụ & phí di chuyển</div>
+                    </div>
+                    <div id="modalTotalPrice" class="text-2xl font-extrabold text-brand-600">229.000 VNĐ</div>
+                </div>
+
+                <!-- Submit Button -->
+                <button onclick="confirmBooking()" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition duration-200">
+                    Xác Nhận Đặt Ca Ngay
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR INTERACTION -->
+    <script>
+        // Set default today's date in Hero Date Picker
+        document.getElementById('heroDate').valueAsDate = new Date();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileDrawer.classList.toggle('hidden');
+        });
+
+        // Price mapping dictionary
+        const prices = {
+            'DN03': 229000,
+            'BV04': 390000,
+            'BV08': 670000,
+            'NT04': 320000,
+            'NT08': 580000
+        };
+
+        // Open Modal Function
+        function openBookingModal(pkgCode = 'DN03') {
+            const modal = document.getElementById('bookingModal');
+            const pkgSelect = document.getElementById('modalPkg');
+            pkgSelect.value = pkgCode;
+            calculateModalPrice();
+            modal.classList.remove('hidden');
+        }
+
+        // Close Modal Function
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.add('hidden');
+        }
+
+        // Calculate Modal Price
+        function calculateModalPrice() {
+            const pkgSelect = document.getElementById('modalPkg').value;
+            const cleanGroup = document.getElementById('cleanChecklistGroup');
+            
+            if (pkgSelect === 'DN03') {
+                cleanGroup.classList.remove('hidden');
+            } else {
+                cleanGroup.classList.add('hidden');
+            }
+
+            const total = prices[pkgSelect] || 229000;
+            document.getElementById('modalTotalPrice').innerText = total.toLocaleString('vi-VN') + ' VNĐ';
+        }
+
+        // Handle Hero Form Submission
+        function handleHeroSubmit(e) {
+            e.preventDefault();
+            const service = document.getElementById('heroServiceSelect').value;
+            const location = document.getElementById('heroLocationSelect').value;
+            const phone = document.getElementById('heroPhone').value;
+            
+            if(!phone) {
+                alert('Vui lòng nhập số điện thoại để liên hệ xác nhận ca!');
+                return;
+            }
+
+            openBookingModal(service);
+            document.getElementById('modalPhone').value = phone;
+        }
+
+        // Confirm Booking Trigger
+        function confirmBooking() {
+            const name = document.getElementById('modalName').value;
+            const phone = document.getElementById('modalPhone').value;
+            const address = document.getElementById('modalAddress').value;
+
+            if (!phone || !name) {
+                alert('Vui lòng nhập đầy đủ Họ tên và Số điện thoại!');
+                return;
+            }
+
+            alert(`Cảm ơn quý khách ${name}!\nYêu cầu đặt ca dịch vụ Hạc Thành đã được ghi nhận thành công.\nBộ phận điều phối sẽ gọi đến số ${phone} trong 15 phút để xác nhận.`);
+            closeBookingModal();
+        }
+    </script>
+</body>
+</html>
