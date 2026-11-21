@@ -1,551 +1,1205 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COP Systems - Đào Tạo Nghề, Đánh Giá Năng Lực & Dịch Vụ Gia Đình Chuyên Nghiệp</title>
-    <!-- Tailwind CSS v4 CDN -->
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Font Inter -->
+    <title>COP Academy & Services - Đào Tạo Nghề & Dịch Vụ Gia Đình Chuẩn SOP Tại Thanh Hóa</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cop: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                            dark: '#0f172a',
+                            gold: '#f59e0b',
+                            goldDark: '#d97706'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { font-family: 'Inter', sans-serif; }
-        .gradient-cop { background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%); }
-        .gradient-subtle { background: linear-gradient(180deg, #F0F9FF 0%, #FFFFFF 100%); }
+        .hero-pattern {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.94) 0%, rgba(20, 83, 45, 0.88) 100%), 
+                        url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .active-tab {
+            border-bottom: 3px solid #16a34a;
+            color: #16a34a;
+            font-weight: 700;
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased selection:bg-sky-600 selection:text-white">
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-cop-600 selection:text-white">
 
-    <!-- Top Announcement Bar -->
-    <div class="bg-sky-950 text-sky-200 text-xs py-2 px-4 text-center font-medium border-b border-sky-800">
-        <span class="inline-block bg-amber-500 text-slate-950 text-[10px] uppercase font-black px-2 py-0.5 rounded-full mr-2">Hệ Sinh Thái COP V4.0</span>
-        Đào Tạo Thực Hành • Kiểm Tra Năng Lực • Dịch Vụ Gia Đình Chuẩn SOP Tại Thanh Hóa
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="bg-slate-900 text-slate-200 text-xs sm:text-sm py-2 px-4 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center space-x-2">
+                <span class="bg-cop-600 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">COP V4.1 Approved</span>
+                <span>Trung Tâm Đào Tạo & Đánh Giá Năng Lực Dịch Vụ Gia Đình Thanh Hóa</span>
+            </div>
+            <div class="flex items-center space-x-4 text-xs">
+                <a href="tel:0912345678" class="hover:text-cop-500 font-semibold transition"><i class="fa-solid fa-phone me-1 text-cop-500"></i> Hotline/Zalo: 0912.345.678</a>
+                <span class="text-slate-700">|</span>
+                <span class="hidden md:inline text-slate-400"><i class="fa-solid fa-location-dot me-1 text-cop-500"></i> Trụ sở: Cụm Đô Thị Hạc Thành</span>
+            </div>
+        </div>
     </div>
 
-    <!-- Header / Navigation -->
-    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            
-            <!-- Brand Logo -->
-            <div class="flex items-center gap-3">
-                <div class="w-11 h-11 rounded-xl gradient-cop flex items-center justify-center text-white font-black text-xl shadow-lg shadow-sky-600/30">
-                    COP
-                </div>
-                <div>
-                    <span class="text-xl font-black text-slate-900 tracking-tight block leading-tight">COP <span class="text-sky-600">SYSTEMS</span></span>
-                    <span class="text-[10px] text-gray-500 font-bold tracking-widest uppercase block">Academy • Assessment • Services • Career</span>
-                </div>
-            </div>
-
-            <!-- Nav Links -->
-            <nav class="hidden lg:flex items-center gap-7 text-xs font-bold text-gray-700 uppercase tracking-wider">
-                <a href="#academy" class="hover:text-sky-600 transition text-sky-700 bg-sky-50 px-3 py-1.5 rounded-lg border border-sky-200">
-                    <i class="fa-solid fa-graduation-cap text-sky-600"></i> Học Nghề (COP Academy)
+    <!-- MAIN NAVBAR -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-cop-800 via-cop-600 to-cop-500 flex items-center justify-center text-white shadow-lg shadow-cop-600/30 group-hover:scale-105 transition duration-300">
+                        <i class="fa-solid fa-user-graduate text-2xl"></i>
+                    </div>
+                    <div>
+                        <div class="font-black text-2xl tracking-tight text-slate-900">COP <span class="text-cop-600">ACADEMY</span></div>
+                        <div class="text-[10px] font-bold text-slate-500 tracking-widest uppercase">& Services Thanh Hóa</div>
+                    </div>
                 </a>
-                <a href="#services" class="hover:text-sky-600 transition">Dịch Vụ Gia Đình</a>
-                <a href="#assessment-info" class="hover:text-sky-600 transition">Tiêu Chuẩn COP</a>
-                <a href="#b2b" class="hover:text-sky-600 transition">Doanh Nghiệp (B2B)</a>
-                <a href="#verification" class="hover:text-sky-600 transition text-amber-700"><i class="fa-solid fa-certificate"></i> Tra Cứu Chứng Nhận</a>
-            </nav>
 
-            <!-- CTA Actions -->
-            <div class="flex items-center gap-3">
-                <a href="tel:0987654321" class="hidden sm:flex items-center gap-2 text-xs font-bold text-slate-700 bg-gray-100 hover:bg-gray-200 px-3.5 py-2.5 rounded-xl transition">
-                    <i class="fa-solid fa-phone text-sky-600"></i> Hotline Tư Vấn
-                </a>
-                <button onclick="openModal('ACADEMY')" class="gradient-cop text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg hover:brightness-105 transition flex items-center gap-2">
-                    <i class="fa-solid fa-paper-plane"></i> Đăng Ký Tư Vấn
+                <!-- Nav Links -->
+                <nav class="hidden lg:flex items-center space-x-7 font-semibold text-slate-700 text-sm">
+                    <a href="#hero" class="hover:text-cop-600 transition">Trang chủ</a>
+                    <a href="#academy" class="text-cop-600 font-bold hover:text-cop-700 transition"><i class="fa-solid fa-graduation-cap me-1"></i>Đào Tạo Nghề (Trọng tâm)</a>
+                    <a href="#pricing" class="hover:text-cop-600 transition">Học Phí Combo</a>
+                    <a href="#services" class="hover:text-cop-600 transition">COP Services</a>
+                    <a href="#b2b" class="hover:text-cop-600 transition">Đào Tạo B2B</a>
+                    <a href="#legal" class="hover:text-cop-600 transition">Pháp Lý & Cam Kết</a>
+                </nav>
+
+                <!-- Action Button CTA -->
+                <div class="hidden sm:flex items-center space-x-3">
+                    <a href="#enrollModal" onclick="openEnrollModal()" class="bg-cop-600 hover:bg-cop-700 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-md shadow-cop-600/20 hover:shadow-lg transition duration-200 flex items-center space-x-2">
+                        <i class="fa-solid fa-file-pen"></i>
+                        <span>Đăng Ký Học Nghề</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
                 </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobileDrawer" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pt-4 pb-6 space-y-3">
+            <a href="#hero" class="block py-2 font-medium text-slate-700 hover:text-cop-600">Trang chủ</a>
+            <a href="#academy" class="block py-2 font-bold text-cop-600 hover:text-cop-700">🎓 Đào Tạo Nghề (Mục tiêu chính)</a>
+            <a href="#pricing" class="block py-2 font-medium text-slate-700 hover:text-cop-600">Học phí & Gói Combo</a>
+            <a href="#services" class="block py-2 font-medium text-slate-700 hover:text-cop-600">Dịch vụ gia đình COP Services</a>
+            <a href="#b2b" class="block py-2 font-medium text-slate-700 hover:text-cop-600">Đào tạo B2B cho Doanh nghiệp</a>
+            <a href="#legal" class="block py-2 font-medium text-slate-700 hover:text-cop-600">Minh bạch pháp lý SOP</a>
+            <div class="pt-2">
+                <button onclick="openEnrollModal()" class="w-full bg-cop-600 text-white font-bold py-3 rounded-xl shadow">Đăng Ký Khóa Học Ngay</button>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section (Value-First Architecture) -->
-    <section class="relative pt-12 pb-20 md:pt-16 md:pb-24 gradient-subtle overflow-hidden border-b border-gray-100">
+    <!-- HERO SECTION (TẬP TRUNG TRỌNG TÂM ĐÀO TẠO) -->
+    <section id="hero" class="hero-pattern relative text-white pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-4xl mx-auto space-y-6">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
                 
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100 border border-sky-200 text-sky-800 text-xs font-bold">
-                    <i class="fa-solid fa-star text-amber-500"></i> Chuẩn Hóa Kỹ Năng & Năng Lực Nghề Dịch Vụ Gia Đình
+                <!-- Hero Left Column -->
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 bg-cop-500/20 border border-cop-500/40 text-cop-100 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full mb-6 backdrop-blur-sm">
+                        <i class="fa-solid fa-award text-cop-500"></i>
+                        <span>COP Assessment & Academy • Tiêu chuẩn nghề Thanh Hóa</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6">
+                        Đào Tạo Nghề Dịch Vụ Gia Đình <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cop-500 via-emerald-300 to-cop-gold">Chuẩn SOP & Thực Hành 100%</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Hệ thống đào tạo 05 Mô-đun kỹ năng độc lập: Chăm sóc người cao tuổi, Trẻ em, Dọn dẹp chuyên nghiệp & Nội trợ. Sát hạch tay nghề nghiêm ngặt, minh bạch chuẩn mực và cấp hồ sơ năng lực thực tế.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-12">
+                        <button onclick="openEnrollModal()" class="w-full sm:w-auto bg-gradient-to-r from-cop-600 to-cop-500 hover:from-cop-700 hover:to-cop-600 text-white font-extrabold text-base px-8 py-4 rounded-xl shadow-xl shadow-cop-600/30 hover:shadow-2xl transition duration-200 flex items-center justify-center space-x-3">
+                            <i class="fa-solid fa-user-plus text-lg"></i>
+                            <span>Đăng Ký Học Nghề / Tư Vấn</span>
+                        </button>
+                        <a href="#services" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-bold text-base px-7 py-4 rounded-xl border border-white/20 transition duration-200 flex items-center justify-center space-x-2 backdrop-blur-md">
+                            <i class="fa-solid fa-handshake-angle text-cop-500"></i>
+                            <span>Khám Phá COP Services</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Metrics Grid -->
+                    <div class="grid grid-cols-3 gap-4 border-t border-slate-700/80 pt-6 max-w-xl mx-auto lg:mx-0 text-left">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-black text-cop-500">05 Mô-Đun</div>
+                            <div class="text-xs text-slate-400 font-medium mt-1">Đào tạo kỹ năng đăng ký độc lập</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-black text-cop-gold">100 ĐIỂM</div>
+                            <div class="text-xs text-slate-400 font-medium mt-1">Thang Rubric đánh giá tay nghề</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-black text-white">B2C & B2B</div>
+                            <div class="text-xs text-slate-400 font-medium mt-1">Chuẩn hóa lực lượng cá nhân & doanh nghiệp</div>
+                        </div>
+                    </div>
                 </div>
 
-                <h1 class="text-3xl sm:text-5xl font-black text-slate-900 leading-tight">
-                    Học Nghề Vững Kỹ Năng. Làm Việc Đúng Chuẩn.<br class="hidden sm:inline"/>
-                    Phát Triển Tương Lai Tại <span class="text-sky-600">Thanh Hóa</span>.
-                </h1>
-
-                <p class="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                    COP Systems mang đến chương trình đào tạo nghề thực hành tại phòng mẫu, đánh giá xác nhận năng lực minh bạch và cung cấp dịch vụ gia đình tận tâm.
-                </p>
-
-                <!-- Value-First Segment Selection Cards -->
-                <div class="pt-8 grid md:grid-cols-3 gap-6 text-left">
-                    
-                    <!-- Path 1: Learners -->
-                    <div onclick="scrollToSection('academy')" class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm hover:shadow-xl hover:border-sky-500 transition cursor-pointer flex flex-col justify-between group">
-                        <div>
-                            <div class="w-12 h-12 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center font-black text-xl mb-4 group-hover:scale-110 transition">
-                                <i class="fa-solid fa-user-graduate"></i>
-                            </div>
-                            <h3 class="font-extrabold text-slate-900 text-base mb-1">Tôi Muốn Học Nghề</h3>
-                            <p class="text-xs text-gray-500 mb-4 leading-relaxed">
-                                Học kỹ năng thực tế 3 ngày, thực hành phòng mẫu, thi chứng nhận COP và làm việc chủ động.
-                            </p>
+                <!-- Hero Right Column: Enrollment Quick Box (Form M05/M01) -->
+                <div class="lg:col-span-5">
+                    <div class="glass-panel text-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl relative border border-white/40">
+                        <div class="absolute -top-3.5 right-6 bg-cop-gold text-slate-900 text-xs font-black px-3.5 py-1 rounded-full uppercase shadow-md">
+                            <i class="fa-solid fa-bolt me-1"></i> Nhận Khuyến Đãi Combo
                         </div>
-                        <span class="text-xs font-bold text-sky-600 flex items-center gap-1">
-                            Xem khóa học <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </span>
-                    </div>
 
-                    <!-- Path 2: Service Clients -->
-                    <div onclick="scrollToSection('services')" class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm hover:shadow-xl hover:border-emerald-500 transition cursor-pointer flex flex-col justify-between group">
-                        <div>
-                            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-black text-xl mb-4 group-hover:scale-110 transition">
-                                <i class="fa-solid fa-house-chimney-user"></i>
-                            </div>
-                            <h3 class="font-extrabold text-slate-900 text-base mb-1">Tôi Cần Tìm Dịch Vụ</h3>
-                            <p class="text-xs text-gray-500 mb-4 leading-relaxed">
-                                Đặt nhân sự dọn nhà, hỗ trợ người cao tuổi hoặc người bệnh đã qua kiểm tra năng lực COP.
-                            </p>
+                        <div class="mb-6">
+                            <h3 class="text-xl font-black text-slate-900">Đăng Ký Tư Vấn Khóa Học</h3>
+                            <p class="text-xs text-slate-500 mt-1">Tư vấn chọn Mô-đun & nhận lịch khai giảng mới nhất</p>
                         </div>
-                        <span class="text-xs font-bold text-emerald-600 flex items-center gap-1">
-                            Xem dịch vụ <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </span>
-                    </div>
 
-                    <!-- Path 3: B2B Partners -->
-                    <div onclick="scrollToSection('b2b')" class="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm hover:shadow-xl hover:border-amber-500 transition cursor-pointer flex flex-col justify-between group">
-                        <div>
-                            <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center font-black text-xl mb-4 group-hover:scale-110 transition">
-                                <i class="fa-solid fa-handshake"></i>
+                        <form id="heroEnrollForm" onsubmit="handleHeroEnroll(event)" class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-1">Họ và tên học viên</label>
+                                <input type="text" id="heroStudentName" required placeholder="Ví dụ: Nguyễn Thị Mai" class="w-full bg-slate-50 border border-slate-200 text-sm rounded-xl p-3 focus:ring-2 focus:ring-cop-600 outline-none">
                             </div>
-                            <h3 class="font-extrabold text-slate-900 text-base mb-1">Tôi Là Khách Hàng B2B</h3>
-                            <p class="text-xs text-gray-500 mb-4 leading-relaxed">
-                                Đặt hàng lớp đào tạo buồng phòng (Housekeeping) cho Khách sạn, Villa, Homestay Sầm Sơn.
-                            </p>
-                        </div>
-                        <span class="text-xs font-bold text-amber-600 flex items-center gap-1">
-                            Tư vấn hợp tác B2B <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </span>
-                    </div>
 
+                            <div>
+                                <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-1">Số điện thoại (Zalo)</label>
+                                <input type="tel" id="heroStudentPhone" required placeholder="09x xxx xxxx" class="w-full bg-slate-50 border border-slate-200 text-sm rounded-xl p-3 focus:ring-2 focus:ring-cop-600 outline-none">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-1">Mô-đun quan tâm nhất</label>
+                                <select id="heroModuleSelect" class="w-full bg-slate-50 border border-slate-200 text-sm rounded-xl p-3 focus:ring-2 focus:ring-cop-600 outline-none font-medium text-slate-800">
+                                    <option value="S01">S01 - Dọn dẹp chuyên nghiệp & SOP Hóa chất (3 ngày)</option>
+                                    <option value="C01">C01 - Chăm sóc người cao tuổi / bệnh nhân phi y tế (4-5 ngày)</option>
+                                    <option value="C02">C02 - Chăm sóc trẻ em an toàn (4 ngày)</option>
+                                    <option value="H01">H01 - Nấu bữa cơm gia đình thực hành (3 ngày)</option>
+                                    <option value="H02">H02 - Nội trợ và đưa đón trẻ (3 ngày)</option>
+                                    <option value="COMBO_FULL">Gói Trọn Bộ 5 Kỹ Năng (6.000.000đ - Tiết kiệm 1.5tr)</option>
+                                </select>
+                            </div>
+
+                            <!-- M10 Privacy Agreement -->
+                            <div class="flex items-start space-x-2 pt-1">
+                                <input type="checkbox" id="heroM10" checked required class="mt-1 rounded text-cop-600 focus:ring-cop-500">
+                                <label for="heroM10" class="text-[11px] text-slate-500 leading-tight">
+                                    Tôi đồng ý để COP xử lý thông tin cá nhân (Biểu mẫu M10) và liên hệ tư vấn lịch học.
+                                </label>
+                            </div>
+
+                            <button type="submit" class="w-full bg-cop-600 hover:bg-cop-700 text-white font-extrabold text-base py-3.5 px-6 rounded-xl shadow-lg shadow-cop-600/30 hover:shadow-xl transition duration-200 flex items-center justify-center space-x-2">
+                                <span>Gửi Đăng Ký Học Nghề</span>
+                                <i class="fa-solid fa-arrow-right text-sm"></i>
+                            </button>
+                        </form>
+
+                        <div class="mt-4 text-center">
+                            <span class="text-[11px] text-slate-400"><i class="fa-solid fa-shield-halved text-cop-600 me-1"></i> Cam kết thông tin được bảo mật tuyệt đối</span>
+                        </div>
+                    </div>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- SECTION 1: COP ACADEMY - ĐÀO TẠO NGHỀ -->
-    <section id="academy" class="py-20 bg-white border-b border-gray-100">
+    <!-- SECTION 3: CORE ACADEMY & MODULES (MỤC TIÊU CỐT LÕI) -->
+    <section id="academy" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-                <div>
-                    <span class="text-sky-600 font-extrabold text-xs uppercase tracking-widest">Khóa Học Nghề Thực Hành</span>
-                    <h2 class="text-3xl font-black text-slate-900 mt-1">COP Academy - Đào Tạo & Phát Triển Kỹ Năng</h2>
-                </div>
-                <p class="text-xs sm:text-sm text-gray-500 max-w-md mt-4 md:mt-0">
-                    Chương trình chú trọng thực hành 100% tại hệ thống phòng mẫu, kiểm tra bài bản trước khi thực hiện công việc.
-                </p>
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-cop-600 font-extrabold text-xs uppercase tracking-widest bg-cop-50 px-3.5 py-1.5 rounded-full border border-cop-200">COP Academy Program</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3 tracking-tight">03 Nhóm Nghề & 05 Mô-Đun Kỹ Năng Độc Lập</h2>
+                <p class="text-slate-600 mt-3 text-base">Hệ thống chương trình chuẩn hóa với thời lượng thực hành lên đến 70%, chú trọng kỹ năng làm việc thực tế và quy trình an toàn.</p>
             </div>
 
-            <!-- Program Detail Feature: COP-H01 -->
-            <div class="bg-sky-50/50 rounded-3xl p-8 border border-sky-100 mb-12">
-                <div class="grid lg:grid-cols-12 gap-8 items-center">
-                    <div class="lg:col-span-7 space-y-4">
-                        <div class="inline-flex items-center gap-2 bg-sky-200 text-sky-900 text-[11px] font-black px-3 py-1 rounded-md uppercase">
-                            Khóa Đào Tạo Nổi Bật: COP-H01
+            <!-- Modules Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Module C01 -->
+                <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200/80 hover:border-cop-500 hover:shadow-xl transition duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-black px-3 py-1 rounded-full uppercase">Nhóm 1: Chăm Sóc</span>
+                            <span class="text-xs font-extrabold text-slate-400">4 - 5 Ngày</span>
                         </div>
-                        <h3 class="text-2xl font-black text-slate-900">Dọn Nhà Chuyên Nghiệp (3 Ngày Thực Hành)</h3>
-                        <p class="text-xs text-gray-600 leading-relaxed">
-                            Trang bị kỹ năng làm sạch theo chuẩn SOP: phân biệt bề mặt nhạy cảm, quy tắc 3 màu khăn vệ sinh, sử dụng hóa chất an toàn có hồ sơ SDS và tác phong giao tiếp tôn trọng quyền riêng tư khách hàng.
+                        <div class="w-12 h-12 rounded-2xl bg-cop-600 text-white flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition duration-300 shadow-md">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-2">C01 - Chăm Sóc Người Cao Tuổi / Bệnh Phi Y Tế</h3>
+                        <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+                            Đào tạo kỹ năng chăm sóc sinh hoạt, ăn uống, giao tiếp, phát hiện dấu hiệu bất thường và quy trình bàn giao ca chi tiết.
                         </p>
-
-                        <!-- Curriculum Days -->
-                        <div class="grid sm:grid-cols-3 gap-3 pt-2 text-xs">
-                            <div class="bg-white p-3.5 rounded-2xl border border-sky-100">
-                                <div class="font-extrabold text-sky-700 mb-1">Ngày 1: An Toàn</div>
-                                <div class="text-gray-500 text-[11px]">Bảo hộ PPE, phân màu khăn, an toàn hóa chất & riêng tư.</div>
+                        
+                        <!-- Outcomes & Red-Lines -->
+                        <div class="space-y-2 border-t border-slate-200/80 pt-4 text-xs">
+                            <div class="font-bold text-slate-800">Đầu ra cốt lõi:</div>
+                            <div class="text-slate-600 flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-cop-600 mt-0.5"></i>
+                                <span>Hỗ trợ ăn uống, di chuyển an toàn mức đơn giản.</span>
                             </div>
-                            <div class="bg-white p-3.5 rounded-2xl border border-sky-100">
-                                <div class="font-extrabold text-sky-700 mb-1">Ngày 2: Phân Vùng</div>
-                                <div class="text-gray-500 text-[11px]">Thực hành làm sạch Bếp, Toilet, Phòng ngủ & đồ gỗ.</div>
+                            <div class="text-slate-600 flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-cop-600 mt-0.5"></i>
+                                <span>Ghi chép nhật ký sinh hoạt (M12).</span>
                             </div>
-                            <div class="bg-white p-3.5 rounded-2xl border border-sky-100">
-                                <div class="font-extrabold text-sky-700 mb-1">Ngày 3: Đánh Giá</div>
-                                <div class="text-gray-500 text-[11px]">Mô phỏng ca 180 phút, xử lý phát sinh & thi chứng nhận.</div>
+                            <div class="text-red-500 font-semibold flex items-start space-x-2 pt-1">
+                                <i class="fa-solid fa-ban text-red-500 mt-0.5"></i>
+                                <span><em>Lỗi cấm: Không cho uống thuốc / tiêm truyền y tế.</em></span>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Pricing & CTA Card -->
-                    <div class="lg:col-span-5 bg-white p-6 rounded-2xl border border-gray-200 shadow-sm text-xs space-y-4">
-                        <div class="flex justify-between items-center border-b border-gray-100 pb-3">
-                            <span class="text-gray-500 font-medium">Học phí trọn gói:</span>
-                            <span class="text-2xl font-black text-sky-600">1.200.000 VNĐ</span>
-                        </div>
-                        <ul class="space-y-2 text-gray-600 text-[11px]">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-600"></i> Bao gồm đầy đủ giáo trình, vật tư thực hành & bảo hộ</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-600"></i> Đánh giá xác nhận năng lực chứng nhận COP cuối khóa</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-600"></i> Hỗ trợ kết nối ca làm việc chủ động sau khi tốt nghiệp</li>
-                        </ul>
-                        <button onclick="openModal('COP-H01')" class="w-full gradient-cop text-white font-bold py-3.5 rounded-xl shadow hover:brightness-105 transition text-xs">
-                            Đăng Ký Khóa Học COP-H01
+                    
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-500">Học phí lẻ: <strong class="text-slate-900 text-sm">1.500.000đ</strong></span>
+                        <button onclick="openEnrollModal('C01')" class="text-xs font-extrabold text-cop-600 hover:text-cop-700 flex items-center space-x-1">
+                            <span>Đăng ký</span>
+                            <i class="fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
                 </div>
+
+                <!-- Module C02 -->
+                <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200/80 hover:border-cop-500 hover:shadow-xl transition duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-black px-3 py-1 rounded-full uppercase">Nhóm 1: Chăm Sóc</span>
+                            <span class="text-xs font-extrabold text-slate-400">4 Ngày</span>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-cop-600 text-white flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition duration-300 shadow-md">
+                            <i class="fa-solid fa-child font-bold"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-2">C02 - Chăm Sóc Trẻ Em An Toàn</h3>
+                        <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+                            Quy trình an toàn cho trẻ, chuẩn bị dinh dưỡng theo hướng dẫn của gia đình, vệ sinh và giao tiếp phụ huynh.
+                        </p>
+                        
+                        <div class="space-y-2 border-t border-slate-200/80 pt-4 text-xs">
+                            <div class="font-bold text-slate-800">Đầu ra cốt lõi:</div>
+                            <div class="text-slate-600 flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-cop-600 mt-0.5"></i>
+                                <span>Lập lịch ăn ngủ & mô phỏng đón trẻ.</span>
+                            </div>
+                            <div class="text-slate-600 flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-cop-600 mt-0.5"></i>
+                                <span>Xử lý tình huống khẩn cấp cơ bản.</span>
+                            </div>
+                            <div class="text-red-500 font-semibold flex items-start space-x-2 pt-1">
+                                <i class="fa-solid fa-ban text-red-500 mt-0.5"></i>
+                                <span><em>Lỗi cấm: Giao trẻ sai người / Bỏ trẻ không giám sát.</em></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-500">Học phí lẻ: <strong class="text-slate-900 text-sm">1.500.000đ</strong></span>
+                        <button onclick="openEnrollModal('C02')" class="text-xs font-extrabold text-cop-600 hover:text-cop-700 flex items-center space-x-1">
+                            <span>Đăng ký</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Module H01 -->
+                <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200/80 hover:border-cop-500 hover:shadow-xl transition duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-amber-100 text-amber-800 text-xs font-black px-3 py-1 rounded-full uppercase">Nhóm 2: Nội Trợ</span>
+                            <span class="text-xs font-extrabold text-slate-400">3 Ngày</span>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-amber-600 text-white flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition duration-300 shadow-md">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-2">H01 - Nấu Bữa Cơm Gia Đình Thực Hành</h3>
+                        <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+                            Xây dựng thực đơn theo ngân sách, kỹ năng sơ chế an toàn, tránh nhiễm khuẩn chéo và nấu bữa ăn tiêu chuẩn.
+                        </p>
+                        
+                        <div class="space-y-2 border-t border-slate-200/80 pt-4 text-xs">
+                            <div class="font-bold text-slate-800">Đầu ra cốt lõi:</div>
+                            <div class="text-slate-600 flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-cop-600 mt-0.5"></i>
+                                <span>Thành thạo 15+ món ăn gia đình miền Trung.</span>
+                            </div>
+                            <div class="text-slate-600 flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-cop-600 mt-0.5"></i>
+                                <span>Bảo quản thực phẩm & vệ sinh bếp.</span>
+                            </div>
+                            <div class="text-red-500 font-semibold flex items-start space-x-2 pt-1">
+                                <i class="fa-solid fa-ban text-red-500 mt-0.5"></i>
+                                <span><em>Lỗi cấm: Dùng thực phẩm ôi thiu / Mất an toàn gas.</em></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-500">Học phí lẻ: <strong class="text-slate-900 text-sm">1.500.000đ</strong></span>
+                        <button onclick="openEnrollModal('H01')" class="text-xs font-extrabold text-cop-600 hover:text-cop-700 flex items-center space-x-1">
+                            <span>Đăng ký</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Module H02 -->
+                <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200/80 hover:border-cop-500 hover:shadow-xl transition duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-amber-100 text-amber-800 text-xs font-black px-3 py-1 rounded-full uppercase">Nhóm 2: Nội Trợ</span>
+                            <span class="text-xs font-extrabold text-slate-400">3 Ngày</span>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-amber-600 text-white flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition duration-300 shadow-md">
+                            <i class="fa-solid fa-house-user"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-2">H02 - Nội Trợ & Đưa Đón Trẻ An Toàn</h3>
+                        <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+                            Quản lý công việc gia đình, giặt là giặt ủi đúng chất liệu, sắp xếp đồ đạc và quy trình đưa đón trẻ ủy quyền (M11).
+                        </p>
+                        
+                        <div class="space-y-2 border-t border-slate-200/80 pt-4 text-xs">
+                            <div class="font-bold text-slate-800">Đầu ra cốt lõi:</div>
+                            <div class="text-slate-600 flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-cop-600 mt-0.5"></i>
+                                <span>Phân khu công việc & quản lý thời gian.</span>
+                            </div>
+                            <div class="text-slate-600 flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-cop-600 mt-0.5"></i>
+                                <span>Bàn giao đưa đón trẻ có giấy ủy quyền.</span>
+                            </div>
+                            <div class="text-red-500 font-semibold flex items-start space-x-2 pt-1">
+                                <i class="fa-solid fa-ban text-red-500 mt-0.5"></i>
+                                <span><em>Lỗi cấm: Tiết lộ mật khẩu nhà / Lịch vắng chủ.</em></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-500">Học phí lẻ: <strong class="text-slate-900 text-sm">1.500.000đ</strong></span>
+                        <button onclick="openEnrollModal('H02')" class="text-xs font-extrabold text-cop-600 hover:text-cop-700 flex items-center space-x-1">
+                            <span>Đăng ký</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Module S01 -->
+                <div class="bg-slate-50 rounded-3xl p-6 border-2 border-cop-500 hover:shadow-xl transition duration-300 flex flex-col justify-between group relative">
+                    <div class="absolute -top-3 right-6 bg-cop-600 text-white text-[10px] font-black px-3 py-0.5 rounded-full uppercase shadow">
+                        Hot nhất
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-black px-3 py-1 rounded-full uppercase">Nhóm 3: Dọn Dẹp</span>
+                            <span class="text-xs font-extrabold text-slate-400">3 Ngày</span>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition duration-300 shadow-md">
+                            <i class="fa-solid fa-broom"></i>
+                        </div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-2">S01 - Dọn Dẹp Chuyên Nghiệp & SOP Hóa Chất</h3>
+                        <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+                            Huấn luyện dọn dẹp theo checklist 180 phút, quy tắc khăn lau màu riêng biệt Bếp/WC, sử dụng hóa chất và trang bị bảo hộ PPE.
+                        </p>
+                        
+                        <div class="space-y-2 border-t border-slate-200/80 pt-4 text-xs">
+                            <div class="font-bold text-slate-800">Đầu ra cốt lõi:</div>
+                            <div class="text-slate-600 flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-cop-600 mt-0.5"></i>
+                                <span>Thành thạo ca dọn 3 tiếng chuẩn SOP.</span>
+                            </div>
+                            <div class="text-slate-600 flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-cop-600 mt-0.5"></i>
+                                <span>Tách biệt khăn lau Bếp (Xanh) - WC (Đỏ).</span>
+                            </div>
+                            <div class="text-red-500 font-semibold flex items-start space-x-2 pt-1">
+                                <i class="fa-solid fa-ban text-red-500 mt-0.5"></i>
+                                <span><em>Lỗi cấm: Trộn lẫn hóa chất tẩy rửa có Clo.</em></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200/60 flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-500">Học phí lẻ: <strong class="text-slate-900 text-sm">1.500.000đ</strong></span>
+                        <button onclick="openEnrollModal('S01')" class="text-xs font-extrabold text-cop-600 hover:text-cop-700 flex items-center space-x-1">
+                            <span>Đăng ký</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Internal 3-Day SOP Training (Non-Fee Notice) -->
+                <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-6 flex flex-col justify-between shadow-lg">
+                    <div>
+                        <div class="inline-flex items-center space-x-1.5 bg-cop-500/20 text-cop-400 text-[11px] font-bold px-3 py-1 rounded-full mb-4">
+                            <i class="fa-solid fa-shield"></i>
+                            <span>Huấn Luyện Nội Bộ COP</span>
+                        </div>
+                        <h3 class="text-xl font-extrabold mb-2">Huấn Luyện SOP 3 Ngày Cho Nhân Viên COP</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                            Khóa hội nhập 03 ngày dành riêng cho ứng viên gia nhập đội ngũ COP Services. <strong>Tuyệt đối không thu học phí</strong> theo quy định pháp luật.
+                        </p>
+                        <div class="text-xs space-y-2 text-slate-400">
+                            <div>• Ngày 1: Hồ sơ, an toàn lao động & PPE</div>
+                            <div>• Ngày 2: Thực hành Bếp, WC, Phòng khách</div>
+                            <div>• Ngày 3: Mô phỏng ca 180p & Thi Rubric</div>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-700 text-xs font-bold text-cop-400 flex items-center justify-between">
+                        <span>Đạt ≥80/100 điểm để nhận ca</span>
+                        <i class="fa-solid fa-check-double"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: FLEXIBLE COMBO PRICING & FEE CALCULATOR -->
+    <section id="pricing" class="py-20 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-cop-600 font-extrabold text-xs uppercase tracking-widest bg-cop-100 px-3.5 py-1.5 rounded-full">Chính Sách Học Phí Niêm Yết</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3 tracking-tight">Bảng Giá Gói Kỹ Năng & Máy Tính Học Phí</h2>
+                <p class="text-slate-600 mt-3 text-base">Đăng ký càng nhiều mô-đun, ưu đãi tiết kiệm càng cao. Học phí công khai minh bạch 100%.</p>
             </div>
 
-            <!-- Other Special Courses -->
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 flex flex-col justify-between">
+            <!-- Pricing Cards Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <!-- Combo 1 -->
+                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition text-center flex flex-col justify-between">
                     <div>
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="bg-amber-100 text-amber-800 text-[10px] font-black px-2.5 py-1 rounded-md">COP-CARE</span>
-                            <span class="text-xs text-gray-500 font-bold">Khóa Chuyên Biệt</span>
-                        </div>
-                        <h4 class="font-bold text-slate-900 text-base mb-2">Đào Tạo Hỗ Trợ Sinh Hoạt (Cao Tuổi & Bệnh Viện)</h4>
-                        <p class="text-xs text-gray-600 mb-4">
-                            Huấn luyện kỹ năng đồng hành phi y tế, tâm lý người cao tuổi, chế độ dinh dưỡng cơ bản và quy trình báo động y tế khẩn cấp cho điều dưỡng.
-                        </p>
+                        <div class="text-xs font-black text-slate-400 uppercase tracking-widest mb-2">1 Kỹ Năng Lẻ</div>
+                        <div class="text-3xl font-black text-slate-900 mb-1">1.500.000đ</div>
+                        <div class="text-xs text-slate-500 mb-6">Áp dụng chọn 01 Mô-đun bất kỳ</div>
+                        <ul class="text-xs text-slate-600 space-y-2.5 text-left mb-6 border-t border-slate-100 pt-4">
+                            <li><i class="fa-solid fa-check text-cop-600 me-1.5"></i> Học trọn gói 1 kỹ năng chuyên sâu</li>
+                            <li><i class="fa-solid fa-check text-cop-600 me-1.5"></i> Tài liệu & dụng cụ thực hành</li>
+                            <li><i class="fa-solid fa-check text-cop-600 me-1.5"></i> Đánh giá COP Assessment</li>
+                        </ul>
                     </div>
-                    <button onclick="openModal('COP-CARE')" class="bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 rounded-xl transition text-xs">
-                        Tư Vấn Khóa Chăm Sóc
-                    </button>
+                    <button onclick="selectCombo(1)" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-extrabold text-xs py-3 rounded-xl transition">Chọn Gói 1 Kỹ Năng</button>
                 </div>
 
-                <div class="bg-gray-50 rounded-2xl p-6 border border-gray-200 flex flex-col justify-between">
+                <!-- Combo 2 -->
+                <div class="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition text-center flex flex-col justify-between">
                     <div>
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-black px-2.5 py-1 rounded-md">COP-HOUSEKEEPING</span>
-                            <span class="text-xs text-gray-500 font-bold">Dành Cho Cơ Sở Lưu Trú</span>
-                        </div>
-                        <h4 class="font-bold text-slate-900 text-base mb-2">Đào Tạo Buồng Phòng Villa & Homestay Sầm Sơn</h4>
-                        <p class="text-xs text-gray-600 mb-4">
-                            Quy trình chuẩn bị phòng chuẩn dịch vụ lưu trú, kỹ thuật làm sạch phòng tắm nhanh, sắp xếp chăn ga và nghiệm thu bàn giao tài sản.
-                        </p>
+                        <span class="bg-emerald-100 text-cop-800 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">Tiết kiệm 200k</span>
+                        <div class="text-xs font-black text-slate-400 uppercase tracking-widest my-2">Gói 2 Kỹ Năng</div>
+                        <div class="text-3xl font-black text-cop-600 mb-1">2.800.000đ</div>
+                        <div class="text-xs text-slate-400 line-through mb-4">3.000.000đ</div>
+                        <ul class="text-xs text-slate-600 space-y-2.5 text-left mb-6 border-t border-slate-100 pt-4">
+                            <li><i class="fa-solid fa-check text-cop-600 me-1.5"></i> Chọn 02 Mô-đun kết hợp</li>
+                            <li><i class="fa-solid fa-check text-cop-600 me-1.5"></i> Ưu tiên lịch khai giảng</li>
+                            <li><i class="fa-solid fa-check text-cop-600 me-1.5"></i> Hỗ trợ bảo lưu 6 tháng</li>
+                        </ul>
                     </div>
-                    <button onclick="openModal('COP-HOUSEKEEPING')" class="bg-sky-700 hover:bg-sky-800 text-white font-bold py-2.5 rounded-xl transition text-xs">
-                        Đăng Ký Đào Tạo Lưu Trú
-                    </button>
+                    <button onclick="selectCombo(2)" class="w-full bg-slate-100 hover:bg-cop-600 hover:text-white text-slate-800 font-extrabold text-xs py-3 rounded-xl transition">Chọn Gói 2 Kỹ Năng</button>
                 </div>
+
+                <!-- Combo 3 -->
+                <div class="bg-white rounded-3xl p-6 border-2 border-cop-500 shadow-lg relative text-center flex flex-col justify-between">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-cop-600 text-white text-[10px] font-black px-3 py-0.5 rounded-full uppercase shadow">
+                        Phổ biến nhất
+                    </div>
+                    <div>
+                        <span class="bg-amber-100 text-amber-800 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">Tiết kiệm 500k</span>
+                        <div class="text-xs font-black text-slate-400 uppercase tracking-widest my-2">Gói 3 Kỹ Năng</div>
+                        <div class="text-3xl font-black text-cop-600 mb-1">4.000.000đ</div>
+                        <div class="text-xs text-slate-400 line-through mb-4">4.500.000đ</div>
+                        <ul class="text-xs text-slate-600 space-y-2.5 text-left mb-6 border-t border-slate-100 pt-4">
+                            <li><i class="fa-solid fa-check text-cop-600 me-1.5"></i> Chọn 03 Mô-đun toàn diện</li>
+                            <li><i class="fa-solid fa-check text-cop-600 me-1.5"></i> Đánh giá hồ sơ năng lực COP</li>
+                            <li><i class="fa-solid fa-check text-cop-600 me-1.5"></i> Miễn phí 1 buổi bổ túc</li>
+                        </ul>
+                    </div>
+                    <button onclick="selectCombo(3)" class="w-full bg-cop-600 hover:bg-cop-700 text-white font-extrabold text-xs py-3 rounded-xl shadow transition">Chọn Gói 3 Kỹ Năng</button>
+                </div>
+
+                <!-- Combo 5 (All-in-one) -->
+                <div class="bg-slate-900 text-white rounded-3xl p-6 border border-slate-800 shadow-xl text-center flex flex-col justify-between">
+                    <div>
+                        <span class="bg-cop-gold text-slate-900 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase">Tiết kiệm 1.5 Triệu</span>
+                        <div class="text-xs font-black text-slate-400 uppercase tracking-widest my-2">Trọn Bộ 5 Kỹ Năng</div>
+                        <div class="text-3xl font-black text-cop-gold mb-1">6.000.000đ</div>
+                        <div class="text-xs text-slate-500 line-through mb-4">7.500.000đ</div>
+                        <ul class="text-xs text-slate-300 space-y-2.5 text-left mb-6 border-t border-slate-800 pt-4">
+                            <li><i class="fa-solid fa-circle-check text-cop-500 me-1.5"></i> Trọn bộ 5 Mô-đun (C01, C02, H01, H02, S01)</li>
+                            <li><i class="fa-solid fa-circle-check text-cop-500 me-1.5"></i> Cấp Hồ sơ năng lực COP Assessment</li>
+                            <li><i class="fa-solid fa-circle-check text-cop-500 me-1.5"></i> Đổi khóa / bảo lưu linh hoạt</li>
+                        </ul>
+                    </div>
+                    <button onclick="selectCombo(5)" class="w-full bg-cop-gold hover:bg-cop-goldDark text-slate-900 font-extrabold text-xs py-3 rounded-xl transition">Đăng Ký Gói 5 Kỹ Năng</button>
+                </div>
+            </div>
+
+            <!-- Interactive Fee Calculator Box -->
+            <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-xl max-w-4xl mx-auto">
+                <h3 class="text-xl font-black text-slate-900 mb-2 flex items-center space-x-2">
+                    <i class="fa-solid fa-calculator text-cop-600"></i>
+                    <span>Công Cụ Tự Tính Học Phí Ưu Đãi</span>
+                </h3>
+                <p class="text-xs text-slate-500 mb-6">Tích chọn các Mô-đun bạn muốn tham gia học để hệ thống tự động tính ưu đãi Combo:</p>
+
+                <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-3 mb-6">
+                    <label class="flex items-center space-x-3 p-3.5 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-cop-50 cursor-pointer transition">
+                        <input type="checkbox" value="S01" onchange="calculateCustomFee()" class="calc-check rounded text-cop-600 focus:ring-cop-500 w-4 h-4">
+                        <div>
+                            <div class="text-xs font-bold text-slate-900">S01 - Dọn dẹp SOP</div>
+                            <div class="text-[11px] text-slate-500">1.500.000đ</div>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center space-x-3 p-3.5 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-cop-50 cursor-pointer transition">
+                        <input type="checkbox" value="C01" onchange="calculateCustomFee()" class="calc-check rounded text-cop-600 focus:ring-cop-500 w-4 h-4">
+                        <div>
+                            <div class="text-xs font-bold text-slate-900">C01 - Chăm người cao tuổi</div>
+                            <div class="text-[11px] text-slate-500">1.500.000đ</div>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center space-x-3 p-3.5 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-cop-50 cursor-pointer transition">
+                        <input type="checkbox" value="C02" onchange="calculateCustomFee()" class="calc-check rounded text-cop-600 focus:ring-cop-500 w-4 h-4">
+                        <div>
+                            <div class="text-xs font-bold text-slate-900">C02 - Chăm trẻ em</div>
+                            <div class="text-[11px] text-slate-500">1.500.000đ</div>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center space-x-3 p-3.5 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-cop-50 cursor-pointer transition">
+                        <input type="checkbox" value="H01" onchange="calculateCustomFee()" class="calc-check rounded text-cop-600 focus:ring-cop-500 w-4 h-4">
+                        <div>
+                            <div class="text-xs font-bold text-slate-900">H01 - Nấu cơm gia đình</div>
+                            <div class="text-[11px] text-slate-500">1.500.000đ</div>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center space-x-3 p-3.5 rounded-2xl border border-slate-200 bg-slate-50 hover:bg-cop-50 cursor-pointer transition">
+                        <input type="checkbox" value="H02" onchange="calculateCustomFee()" class="calc-check rounded text-cop-600 focus:ring-cop-500 w-4 h-4">
+                        <div>
+                            <div class="text-xs font-bold text-slate-900">H02 - Nội trợ & đưa đón trẻ</div>
+                            <div class="text-[11px] text-slate-500">1.500.000đ</div>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Summary Bar -->
+                <div class="p-4 rounded-2xl bg-slate-900 text-white flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div>
+                        <div class="text-xs text-slate-400">Số mô-đun chọn: <span id="calcCount" class="font-bold text-cop-500">0</span> mô-đun</div>
+                        <div class="text-xs text-slate-400">Số tiền tiết kiệm: <span id="calcSaved" class="font-bold text-cop-gold">0 VNĐ</span></div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <div class="text-right">
+                            <div class="text-[10px] text-slate-400 uppercase font-bold">Tổng học phí thực thu</div>
+                            <div id="calcTotal" class="text-2xl font-black text-cop-500">0 VNĐ</div>
+                        </div>
+                        <button onclick="openEnrollWithCalc()" class="bg-cop-600 hover:bg-cop-700 text-white font-extrabold text-xs px-5 py-3 rounded-xl transition">Đăng Ký Theo Lựa Chọn</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Class Schedule & Minimum Class Rule -->
+            <div class="mt-12 bg-emerald-50 border border-emerald-200 rounded-2xl p-6 text-slate-700 text-xs flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center space-x-3">
+                    <i class="fa-solid fa-users-rectangle text-cop-600 text-2xl shrink-0"></i>
+                    <div>
+                        <div class="font-bold text-slate-900 text-sm">Quy Tắc Mở Lớp & Khai Giảng (COP V4.1)</div>
+                        <div>Các khóa B2C khai giảng định kỳ. Yêu cầu tối thiểu <strong>&ge; 8 học viên đóng phí</strong> mới mở lớp chính thức để đảm bảo chất lượng thực hành.</div>
+                    </div>
+                </div>
+                <a href="#enrollModal" onclick="openEnrollModal()" class="shrink-0 bg-cop-600 text-white font-bold px-4 py-2 rounded-xl text-xs">Xem Lịch Khai Giảng</a>
             </div>
 
         </div>
     </section>
 
-    <!-- SECTION 2: COP SERVICES - DỊCH VỤ GIA ĐÌNH -->
-    <section id="services" class="py-20 bg-gray-50">
+    <!-- SECTION 5: COP SERVICES (MẢNG DỊCH VỤ TRỰC TIẾP) -->
+    <section id="services" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-sky-600 font-extrabold text-xs uppercase tracking-widest">COP Services</span>
-                <h2 class="text-3xl font-black text-slate-900 mt-1">Dịch Vụ Gia Đình Minh Bạch & Đúng Chuẩn</h2>
-                <p class="text-xs sm:text-sm text-gray-600 mt-2">
-                    Báo giá niêm yết rõ ràng, phạm vi công việc thống nhất trước ca, người làm được xác minh danh tính và kiểm tra bài bản.
-                </p>
+                <span class="text-cop-600 font-extrabold text-xs uppercase tracking-widest bg-cop-50 px-3.5 py-1.5 rounded-full border border-cop-200">COP Services</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3 tracking-tight">Dịch Vụ Gia Đình Trực Tiếp Tại Thanh Hóa</h2>
+                <p class="text-slate-600 mt-3 text-base">Minh chứng cho chất lượng đào tạo. Nhân sự thực hiện 100% đạt sát hạch COP Assessment trước khi nhận ca.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 
-                <!-- Service 1: Clean -->
-                <div class="bg-white rounded-3xl p-7 border border-gray-200 hover:border-sky-500 transition shadow-sm hover:shadow-xl flex flex-col justify-between">
+                <!-- Service DV01 -->
+                <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200 flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-center mb-4">
-                            <span class="bg-sky-100 text-sky-800 font-black text-[10px] px-3 py-1 rounded-full">CA 3 GIỜ</span>
-                            <span class="text-xs text-gray-500 font-bold">1 Người Thực Hiện</span>
+                            <span class="bg-slate-900 text-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase">Mã: DV01</span>
+                            <span class="text-xs font-bold text-slate-500">Ca 3 Giờ</span>
                         </div>
-                        <h3 class="text-xl font-black text-slate-900 mb-1">Dọn Nhà Tiêu Chuẩn</h3>
-                        <div class="text-3xl font-black text-sky-600 mb-4">230.000đ <span class="text-xs font-semibold text-gray-500">/ ca 180'</span></div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-2">Dọn Nhà Tiêu Chuẩn 3 Giờ</h3>
+                        <div class="text-3xl font-black text-cop-600 mb-4">230.000đ <span class="text-xs text-slate-500 font-normal">/ ca</span></div>
+                        <p class="text-xs text-slate-600 mb-6">Thực hiện theo checklist 180 phút. Phân màu khăn lau Bếp & Nhà tắm tách biệt 100%.</p>
                         
-                        <p class="text-xs text-gray-600 mb-6">
-                            Phù hợp căn hộ chung cư, nhà phố tại khu vực Hạc Thành. Tập trung lau sàn, vệ sinh bếp, toilet và sắp xếp gọn gàng không gian sinh hoạt.
-                        </p>
-
-                        <div class="border-t border-gray-100 pt-4 mb-6 text-xs space-y-2 text-gray-600">
-                            <div class="font-bold text-slate-900 mb-1">Checklist Bao Gồm:</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-600"></i> Vệ sinh bồn rửa, lau mặt ngoài thiết bị bếp</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-600"></i> Làm sạch bồn cầu, gương, lavabo & sàn toilet</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-600"></i> Hút bụi, quét & lau sàn toàn bộ nhà</div>
+                        <!-- Checklist 180p Accordion/Details -->
+                        <div class="space-y-2 text-xs border-t border-slate-200 pt-4">
+                            <div class="font-bold text-slate-800 mb-2">Checklist 180 phút chuẩn SOP:</div>
+                            <div class="text-slate-600">• 0-10m: Kiểm tra tình trạng bề mặt & chốt ưu tiên</div>
+                            <div class="text-slate-600">• 10-40m: Thu gom rác khô & dọn sắp xếp</div>
+                            <div class="text-slate-600">• 40-90m: Vệ sinh khu Bếp & phòng khách</div>
+                            <div class="text-slate-600">• 90-135m: Vệ sinh WC bằng khăn Đỏ riêng</div>
+                            <div class="text-slate-600">• 135-180m: Lau sàn & nghiệm thu bàn giao</div>
                         </div>
                     </div>
-                    <button onclick="openModal('SERVICE-CLEAN')" class="w-full gradient-cop text-white font-bold py-3.5 rounded-xl shadow hover:brightness-105 transition text-xs">
-                        Đặt Lịch Dọn Nhà (230k)
-                    </button>
+
+                    <button onclick="openServiceModal('DV01')" class="mt-6 w-full bg-slate-900 hover:bg-cop-600 text-white font-extrabold text-xs py-3 rounded-xl transition shadow">Đặt Ca Dọn Nhà DV01</button>
                 </div>
 
-                <!-- Service 2: Elderly -->
-                <div class="bg-white rounded-3xl p-7 border border-gray-200 hover:border-sky-500 transition shadow-sm hover:shadow-xl flex flex-col justify-between">
+                <!-- Service DV02 -->
+                <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200 flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-center mb-4">
-                            <span class="bg-amber-100 text-amber-800 font-black text-[10px] px-3 py-1 rounded-full">CA 4 GIỜ</span>
-                            <span class="text-xs text-gray-500 font-bold">Đồng Hành Tại Nhà</span>
+                            <span class="bg-slate-900 text-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase">Mã: DV02</span>
+                            <span class="text-xs font-bold text-slate-500">Ca 4 Giờ</span>
                         </div>
-                        <h3 class="text-xl font-black text-slate-900 mb-1">Hỗ Trợ Cao Tuổi Tại Nhà</h3>
-                        <div class="text-3xl font-black text-sky-600 mb-4">330.000đ <span class="text-xs font-semibold text-gray-500">/ ca 4 giờ</span></div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-2">Hỗ Trợ Sinh Hoạt Người Cao Tuổi</h3>
+                        <div class="text-3xl font-black text-cop-600 mb-4">330.000đ <span class="text-xs text-slate-500 font-normal">/ ca 4h</span></div>
+                        <p class="text-xs text-slate-600 mb-6">Đồng hành phi y tế tại nhà: hỗ trợ bữa ăn nhẹ, trò chuyện, nhắc lịch sinh hoạt và ghi nhật ký ca M12.</p>
                         
-                        <p class="text-xs text-gray-600 mb-6">
-                            Đồng hành hỗ trợ sinh hoạt phi y tế khi người nhà bận công tác. Đảm bảo có nhật ký theo dõi bàn giao chi tiết sau mỗi ca làm việc.
-                        </p>
-
-                        <div class="border-t border-gray-100 pt-4 mb-6 text-xs space-y-2 text-gray-600">
-                            <div class="font-bold text-slate-900 mb-1">Checklist Bao Gồm:</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-600"></i> Hâm chuẩn bị bữa ăn nhẹ từ thực đơn gia đình</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-600"></i> Nhắc lịch uống thuốc theo chỉ dẫn người nhà</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-600"></i> Trò chuyện, đi lại an toàn & nhật ký bàn giao</div>
+                        <div class="space-y-2 text-xs border-t border-slate-200 pt-4">
+                            <div class="font-bold text-slate-800 mb-2">Phạm vi công việc chuẩn:</div>
+                            <div class="text-slate-600">• Hỗ trợ di chuyển nhẹ nhàng trong nhà</div>
+                            <div class="text-slate-600">• Hâm nóng & chuẩn bị bữa ăn đơn giản</div>
+                            <div class="text-slate-600">• Nhắc lịch sinh hoạt do gia đình ghi trước</div>
+                            <div class="text-red-500 font-semibold">• Ranh giới: Không can thiệp y tế</div>
                         </div>
                     </div>
-                    <button onclick="openModal('SERVICE-ELDERLY')" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl transition text-xs">
-                        Đặt Lịch Chăm Cao Tuổi
-                    </button>
+
+                    <button onclick="openServiceModal('DV02')" class="mt-6 w-full bg-slate-900 hover:bg-cop-600 text-white font-extrabold text-xs py-3 rounded-xl transition shadow">Đặt Ca Chăm Tại Nhà DV02</button>
                 </div>
 
-                <!-- Service 3: Hospital -->
-                <div class="bg-white rounded-3xl p-7 border border-gray-200 hover:border-sky-500 transition shadow-sm hover:shadow-xl flex flex-col justify-between">
+                <!-- Service DV03 -->
+                <div class="bg-slate-50 rounded-3xl p-6 border border-slate-200 flex flex-col justify-between">
                     <div>
                         <div class="flex justify-between items-center mb-4">
-                            <span class="bg-emerald-100 text-emerald-800 font-black text-[10px] px-3 py-1 rounded-full">CA 8 GIỜ</span>
-                            <span class="text-xs text-gray-500 font-bold">Túc Trực Ban Ngày</span>
+                            <span class="bg-slate-900 text-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase">Mã: DV03</span>
+                            <span class="text-xs font-bold text-slate-500">Ca 8 Giờ Ban Ngày</span>
                         </div>
-                        <h3 class="text-xl font-black text-slate-900 mb-1">Đồng Hành Tại Bệnh Viện</h3>
-                        <div class="text-3xl font-black text-sky-600 mb-4">500.000đ <span class="text-xs font-semibold text-gray-500">/ ca ban ngày</span></div>
+                        <h3 class="text-xl font-extrabold text-slate-900 mb-2">Hỗ Trợ Tại Bệnh Viện Phi Y Tế</h3>
+                        <div class="text-3xl font-black text-cop-600 mb-4">500.000đ <span class="text-xs text-slate-500 font-normal">/ ca 8h</span></div>
+                        <p class="text-xs text-slate-600 mb-6">Đồng hành cùng người bệnh tại viện: túc trực bên giường, mua đồ thiết yếu, hỗ trợ sinh hoạt nhẹ.</p>
                         
-                        <p class="text-xs text-gray-600 mb-6">
-                            Hỗ trợ túc trực bên giường bệnh ban ngày tại các bệnh viện khu vực TP. Thanh Hóa. Tuân thủ nghiêm ngặt quy định nội quy khoa phòng.
-                        </p>
-
-                        <div class="border-t border-gray-100 pt-4 mb-6 text-xs space-y-2 text-gray-600">
-                            <div class="font-bold text-slate-900 mb-1">Checklist Bao Gồm:</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-600"></i> Trợ giúp ăn uống nhẹ & vệ sinh cá nhân cơ bản</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-600"></i> Báo ngay cho điều dưỡng khi có bất thường</div>
-                            <div class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-600"></i> Không tự thực hiện thủ thuật y tế chuyên môn</div>
+                        <div class="space-y-2 text-xs border-t border-slate-200 pt-4">
+                            <div class="font-bold text-slate-800 mb-2">Phạm vi công việc chuẩn:</div>
+                            <div class="text-slate-600">• Túc trực 100% thời gian bên bệnh nhân</div>
+                            <div class="text-slate-600">• Hỗ trợ lấy nước, thức ăn theo dặn bác sĩ</div>
+                            <div class="text-slate-600">• Gọi điều dưỡng/bác sĩ khi có bất thường</div>
+                            <div class="text-red-500 font-semibold">• Tuyệt đối không cho thuốc / tiêm truyền</div>
                         </div>
                     </div>
-                    <button onclick="openModal('SERVICE-HOSPITAL')" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl transition text-xs">
-                        Đặt Lịch Tại Bệnh Viện
-                    </button>
+
+                    <button onclick="openServiceModal('DV03')" class="mt-6 w-full bg-slate-900 hover:bg-cop-600 text-white font-extrabold text-xs py-3 rounded-xl transition shadow">Đặt Ca Tại Viện DV03</button>
                 </div>
 
             </div>
-
         </div>
     </section>
 
-    <!-- SECTION 3: COP ASSESSMENT - TIÊU CHUẨN NĂNG LỰC & TRA CỨU CHỨNG NHẬN -->
-    <section id="assessment-info" class="py-20 bg-white border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
+    <!-- SECTION 6: B2B TRAINING PROPOSAL (M06) -->
+    <section id="b2b" class="py-20 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-12 gap-12 items-center">
                 
-                <div class="lg:col-span-6 space-y-5">
-                    <span class="text-sky-600 font-extrabold text-xs uppercase tracking-widest">Tiêu Chuẩn Đánh Giá COP</span>
-                    <h2 class="text-3xl font-black text-slate-900">Xác Nhận Năng Lực Nâng Cao Uy Tín Nghề Nghiệp</h2>
-                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                        Hệ thống đánh giá năng lực COP là bộ tiêu chuẩn độc lập do doanh nghiệp phát triển nhằm kiểm tra kỹ năng thực hành, thái độ làm việc và an toàn lao động của nhân sự trước khi phục vụ khách hàng.
+                <div class="lg:col-span-6">
+                    <span class="bg-cop-500/20 text-cop-400 text-xs font-bold px-3 py-1 rounded-md uppercase border border-cop-500/30">Chương Trình Đào Tạo B2B</span>
+                    <h2 class="text-3xl sm:text-4xl font-black mt-3 mb-6 tracking-tight">Chuẩn Hóa Đội Ngũ Cho Khách Sạn, Villa & Homestay</h2>
+                    <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+                        COP hợp tác cùng các cơ sở lưu trú tại Sầm Sơn, Hạc Thành và các khu du lịch tại Thanh Hóa để đào tạo housekeeping, quy trình vệ sinh căn hộ & kỹ năng phục vụ theo hợp đồng chuẩn B2B (Mẫu M06).
                     </p>
 
-                    <div class="space-y-3 text-xs">
-                        <div class="flex items-start gap-3 bg-gray-50 p-3.5 rounded-xl border border-gray-200">
-                            <i class="fa-solid fa-clipboard-check text-sky-600 text-base mt-0.5"></i>
-                            <div>
-                                <div class="font-bold text-slate-900">Bài Thi Thực Hành Mô Phỏng 180 Phút</div>
-                                <div class="text-gray-500">Đánh giá trực tiếp kỹ thuật làm sạch, phân bổ thời gian và khả năng xử lý tình huống thực tế.</div>
-                            </div>
+                    <div class="space-y-3 text-xs text-slate-300 mb-8">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-circle-check text-cop-500 text-base"></i>
+                            <span>Giáo trình tùy biến theo tiêu chuẩn từng Villa / Khách sạn.</span>
                         </div>
-
-                        <div class="flex items-start gap-3 bg-gray-50 p-3.5 rounded-xl border border-gray-200">
-                            <i class="fa-solid fa-shield-halved text-sky-600 text-base mt-0.5"></i>
-                            <div>
-                                <div class="font-bold text-slate-900">Cam Kết Không Vi Phạm An Toàn</div>
-                                <div class="text-gray-500">Lỗi tự ý pha trộn hóa chất không rõ nguồn gốc hoặc vi phạm riêng tư sẽ không được cấp chứng nhận.</div>
-                            </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-circle-check text-cop-500 text-base"></i>
+                            <span>Sát hạch tay nghề nhân sự tại chỗ với bảng điểm Rubric.</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-circle-check text-cop-500 text-base"></i>
+                            <span>Hợp đồng pháp lý minh bạch, xuất hóa đơn VAT theo quy định.</span>
                         </div>
                     </div>
-                </div>
 
-                <!-- Live Certificate Lookup Tool -->
-                <div id="verification" class="lg:col-span-6 bg-slate-900 text-white p-8 rounded-3xl shadow-xl">
-                    <div class="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase mb-2">
-                        <i class="fa-solid fa-certificate"></i> Cổng Xác Minh Chứng Nhận COP
-                    </div>
-                    <h3 class="text-xl font-bold mb-2">Tra Cứu Mã Chứng Nhận Năng Lực</h3>
-                    <p class="text-xs text-gray-400 mb-6">Nhập Mã chứng nhận hoặc Họ tên nhân sự để xác minh kết quả kiểm tra năng lực độc quyền.</p>
-
-                    <form onsubmit="handleVerificationSearch(event)" class="space-y-3">
-                        <div class="flex gap-2">
-                            <input type="text" id="certQuery" required placeholder="Ví dụ: COP-2026-089 hoặc Nguyễn Văn A" class="w-full p-3 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs focus:outline-none focus:ring-2 focus:ring-sky-500">
-                            <button type="submit" class="gradient-cop font-bold text-xs px-5 py-3 rounded-xl whitespace-nowrap hover:brightness-105 transition">
-                                Tra Cứu
-                            </button>
-                        </div>
-                    </form>
-
-                    <!-- Search Result Output Container -->
-                    <div id="certResult" class="mt-4 hidden p-4 rounded-xl bg-slate-800/90 border border-slate-700 text-xs space-y-1.5">
-                        <div class="font-bold text-sky-400 flex items-center gap-1.5">
-                            <i class="fa-solid fa-circle-check"></i> Xác Minh Hợp Lệ (Dữ Liệu COP Systems)
-                        </div>
-                        <div class="text-gray-300">Nhân sự: <span id="resName" class="font-bold text-white">---</span></div>
-                        <div class="text-gray-300">Chứng nhận: <span id="resCert" class="font-bold text-white">COP-H01 Dọn Nhà Chuyên Nghiệp</span></div>
-                        <div class="text-gray-300">Trạng thái: <span class="bg-emerald-900 text-emerald-300 text-[10px] px-2 py-0.5 rounded font-bold">ĐẠT CHUẨN SỬ DỤNG</span></div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <!-- SECTION 4: B2B PARTNERS -->
-    <section id="b2b" class="py-20 bg-slate-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-r from-sky-900 to-slate-800 rounded-3xl p-8 sm:p-12 border border-slate-700 grid lg:grid-cols-12 gap-8 items-center">
-                
-                <div class="lg:col-span-8 space-y-4">
-                    <span class="bg-sky-800 text-sky-200 text-xs font-extrabold px-3 py-1 rounded-full uppercase">Giải Pháp Doanh Nghiệp B2B</span>
-                    <h2 class="text-2xl sm:text-3xl font-black">Đặt Hàng Đào Tạo Lớp Nghề Nội Bộ Cho Khách Sạn & Villa</h2>
-                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                        Chuẩn hóa đội ngũ nhân viên buồng phòng, vệ sinh cho các Khách sạn, Homestay, Villa nghỉ dưỡng tại Sầm Sơn & TP. Thanh Hóa. Đảm bảo chương trình thiết kế riêng theo quy mô và tiêu chuẩn thực tế của doanh nghiệp.
-                    </p>
-                </div>
-
-                <div class="lg:col-span-4 text-center lg:text-right">
-                    <button onclick="openModal('B2B')" class="bg-white text-slate-900 hover:bg-sky-50 font-bold px-7 py-4 rounded-xl shadow-lg transition text-xs">
-                        <i class="fa-solid fa-handshake mr-2"></i> Yêu Cầu Đề Xuất B2B
+                    <button onclick="openB2BModal()" class="bg-cop-gold hover:bg-cop-goldDark text-slate-900 font-extrabold px-6 py-3.5 rounded-xl text-sm transition shadow-lg">
+                        Yêu Cầu Đề Xuất Đào Tạo B2B (M06)
                     </button>
                 </div>
 
+                <div class="lg:col-span-6">
+                    <div class="bg-slate-800/80 p-8 rounded-3xl border border-slate-700 backdrop-blur-md">
+                        <h4 class="font-extrabold text-lg mb-4 text-cop-400">Quy Trình Đào Tạo Doanh Nghiệp (B2B Pipeline)</h4>
+                        
+                        <div class="space-y-4 text-xs">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-7 h-7 rounded-full bg-cop-600 text-white font-bold flex items-center justify-center shrink-0">1</div>
+                                <div>
+                                    <div class="font-bold text-white text-sm">Khảo sát & Tiếp nhận nhu cầu</div>
+                                    <div class="text-slate-400">Đánh giá thực trạng đội ngũ và quy chuẩn vận hành của đối tác.</div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3">
+                                <div class="w-7 h-7 rounded-full bg-cop-600 text-white font-bold flex items-center justify-center shrink-0">2</div>
+                                <div>
+                                    <div class="font-bold text-white text-sm">Xây dựng Đề xuất & Hợp đồng M06</div>
+                                    <div class="text-slate-400">Thống nhất thời lượng, chi phí trực tiếp và tiêu chuẩn đánh giá đầu ra.</div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3">
+                                <div class="w-7 h-7 rounded-full bg-cop-600 text-white font-bold flex items-center justify-center shrink-0">3</div>
+                                <div>
+                                    <div class="font-bold text-white text-sm">Tổ chức huấn luyện & Sát hạch</div>
+                                    <div class="text-slate-400">Giảng viên COP trực tiếp huấn luyện thực hành và chấm điểm Rubric.</div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3">
+                                <div class="w-7 h-7 rounded-full bg-cop-600 text-white font-bold flex items-center justify-center shrink-0">4</div>
+                                <div>
+                                    <div class="font-bold text-white text-sm">Nghiệm thu & Bàn giao hồ sơ</div>
+                                    <div class="text-slate-400">Cấp báo cáo đánh giá năng lực từng nhân sự và nghiệm thu hợp đồng.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 text-gray-400 text-xs py-12 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8 mb-10">
-            <div class="space-y-3">
-                <div class="text-white font-black text-lg flex items-center gap-2">
-                    <div class="w-7 h-7 rounded-lg gradient-cop text-white flex items-center justify-center text-xs">COP</div>
-                    COP SYSTEMS
+    <!-- SECTION 7: LEGAL & SAFETY BOUNDARIES (MINH BẠCH PHÁP LÝ & CAM KẾT) -->
+    <section id="legal" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-cop-600 font-extrabold text-xs uppercase tracking-widest bg-cop-100 px-3.5 py-1.5 rounded-full">Minh Bạch Pháp Lý & Ranh Giới</span>
+                <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3 tracking-tight">Cam Kết Quản Trị Tuyệt Đối (COP V4.1)</h2>
+                <p class="text-slate-600 mt-3 text-base">Tuân thủ nghiêm ngặt các quy định pháp luật hiện hành và giữ vững uy tín thương hiệu.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                    </div>
+                    <h4 class="font-extrabold text-slate-900 text-lg mb-2">Phân Định Đào Tạo Rõ Ràng</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Hệ thống đánh giá <strong>COP Assessment</strong> là hoạt động đánh giá năng lực nội bộ. COP tách biệt rõ ràng khóa học nghề trả phí bên ngoài với chương trình huấn luyện SOP 3 ngày cho nhân viên nội bộ (không thu học phí).
+                    </p>
                 </div>
-                <p class="text-gray-500 leading-relaxed">
-                    Hệ thống Đào tạo nghề - Đánh giá năng lực - Cung cấp dịch vụ gia đình chuyên nghiệp tại Thanh Hóa.
-                </p>
-            </div>
 
-            <div>
-                <h4 class="text-white font-bold mb-3">Dịch Vụ Gia Đình</h4>
-                <ul class="space-y-2">
-                    <li><a href="#services" class="hover:text-sky-400">Dọn nhà tiêu chuẩn 3h (230k)</a></li>
-                    <li><a href="#services" class="hover:text-sky-400">Hỗ trợ người cao tuổi 4h (330k)</a></li>
-                    <li><a href="#services" class="hover:text-sky-400">Đồng hành tại bệnh viện 8h (500k)</a></li>
-                </ul>
-            </div>
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <div class="w-12 h-12 rounded-2xl bg-red-100 text-red-600 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-user-doctor"></i>
+                    </div>
+                    <h4 class="font-extrabold text-slate-900 text-lg mb-2">Quy Tắc 100% Phi Y Tế</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Tuyệt đối tách việc chăm sóc sinh hoạt phi y tế khỏi các hoạt động khám/chữa bệnh, tiêm truyền, cho uống thuốc hoặc điều dưỡng chuyên môn. Nhân viên dừng ca ngay nếu gia đình yêu cầu vượt phạm vi.
+                    </p>
+                </div>
 
-            <div>
-                <h4 class="text-white font-bold mb-3">Đào Tạo Nghề</h4>
-                <ul class="space-y-2">
-                    <li><a href="#academy" class="hover:text-sky-400">Khóa dọn nhà COP-H01 (1.2tr)</a></li>
-                    <li><a href="#academy" class="hover:text-sky-400">Khóa hỗ trợ sinh hoạt cao tuổi</a></li>
-                    <li><a href="#academy" class="hover:text-sky-400">Đào tạo Housekeeping B2B</a></li>
-                </ul>
-            </div>
+                <div class="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <h4 class="font-extrabold text-slate-900 text-lg mb-2">Bảo Mật Dữ Liệu (M10)</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Thông tin khách hàng, hình ảnh nhà cửa và dữ liệu sinh hoạt được bảo mật tuyệt đối theo biểu mẫu M10. Không tự ý quay phim/chụp ảnh trong nhà khách khi chưa có văn bản chấp thuận riêng.
+                    </p>
+                </div>
 
-            <div>
-                <h4 class="text-white font-bold mb-3">Liên Hệ Điều Hành</h4>
-                <p class="text-gray-400 mb-1">Địa bàn: Cụm Hạc Thành, TP. Thanh Hóa</p>
-                <p class="text-gray-400 mb-1">Hotline tư vấn: 0987.654.321</p>
-                <p class="text-gray-500 text-[11px]">COP Systems V4.0 Commercial Release</p>
             </div>
         </div>
+    </section>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-900 pt-6 text-center text-gray-600">
-            © 2026 COP Systems. Bảo lưu mọi quyền thương mại.
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                
+                <div class="md:col-span-1">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-cop-600 flex items-center justify-center text-white font-bold text-xl">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                        <span class="text-white font-black text-xl tracking-tight">COP ACADEMY</span>
+                    </div>
+                    <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                        Công ty Dịch vụ Gia đình COP - Đơn vị hàng đầu tại Thanh Hóa về đào tạo kỹ năng dịch vụ gia đình & cung cấp dịch vụ chăm sóc chuẩn SOP.
+                    </p>
+                    <div class="text-[11px] text-slate-500">
+                        © 2026 CÔNG TY DỊCH VỤ GIA ĐÌNH COP. All rights reserved.
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-xs font-black mb-4 uppercase tracking-wider">Hệ Thống Đào Tạo</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#academy" onclick="openEnrollModal('S01')" class="hover:text-cop-500 transition">S01 - Dọn dẹp chuyên nghiệp (3 ngày)</a></li>
+                        <li><a href="#academy" onclick="openEnrollModal('C01')" class="hover:text-cop-500 transition">C01 - Chăm sóc người cao tuổi (4-5 ngày)</a></li>
+                        <li><a href="#academy" onclick="openEnrollModal('C02')" class="hover:text-cop-500 transition">C02 - Chăm sóc trẻ em an toàn (4 ngày)</a></li>
+                        <li><a href="#academy" onclick="openEnrollModal('H01')" class="hover:text-cop-500 transition">H01 - Nấu bữa cơm gia đình (3 ngày)</a></li>
+                        <li><a href="#academy" onclick="openEnrollModal('H02')" class="hover:text-cop-500 transition">H02 - Nội trợ & Đưa đón trẻ (3 ngày)</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-xs font-black mb-4 uppercase tracking-wider">Địa Bàn Phục Vụ</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><i class="fa-solid fa-location-dot me-1.5 text-cop-500"></i> Cụm Đô thị Hạc Thành (Đông Vệ, Đông Hải)</li>
+                        <li><i class="fa-solid fa-location-dot me-1.5 text-cop-500"></i> Thành phố Sầm Sơn (Villa/Homestay)</li>
+                        <li><i class="fa-solid fa-location-dot me-1.5 text-cop-500"></i> Khu vực Quảng Xương & Quảng Phú</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-xs font-black mb-4 uppercase tracking-wider">Liên Hệ & Đặt Lịch</h4>
+                    <div class="space-y-3 text-xs">
+                        <div>
+                            <div class="text-slate-500 text-[10px] uppercase font-bold">Hotline Điều Phối / Zalo:</div>
+                            <a href="tel:0912345678" class="text-white font-extrabold text-base hover:text-cop-500 transition">0912.345.678</a>
+                        </div>
+                        <div>
+                            <div class="text-slate-500 text-[10px] uppercase font-bold">Email tiếp nhận:</div>
+                            <span class="text-slate-300">lienhe@copthanhhoa.vn</span>
+                        </div>
+                        <div class="pt-2">
+                            <button onclick="openEnrollModal()" class="bg-cop-600 hover:bg-cop-700 text-white font-bold px-4 py-2 rounded-xl text-xs transition">
+                                Đăng Ký Học Nghề Trực Tuyến
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-slate-900 text-center text-xs text-slate-600">
+                Tài liệu quản trị COP V4.1 • Ngày cập nhật: 21/11/2026.
+            </div>
         </div>
     </footer>
 
-    <!-- DYNAMIC COMMERCIAL ACTION MODAL -->
-    <div id="actionModal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closeModal()" class="absolute top-5 right-5 text-gray-400 hover:text-gray-600 text-xl font-bold">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+    <!-- MODAL 1: STUDENT ENROLLMENT (M05 / M01 FORM) -->
+    <div id="enrollModal" class="fixed inset-0 z-50 hidden bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full shadow-2xl overflow-hidden relative max-h-[90vh] flex flex-col">
+            <div class="bg-slate-900 text-white p-6 relative">
+                <button onclick="closeModal('enrollModal')" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="text-cop-500 text-xs font-bold uppercase tracking-wider mb-1">COP Academy Registration</div>
+                <h3 class="text-xl font-black text-white">Đăng Ký Khóa Học Nghề COP (M05)</h3>
+            </div>
 
-            <span class="bg-sky-100 text-sky-800 text-[10px] font-black px-2 py-0.5 rounded-md uppercase">Hệ Thống Tiếp Nhận COP</span>
-            <h3 id="modalTitle" class="text-xl font-black text-slate-900 mt-1 mb-1">Đăng Ký Tư Vấn Nhu Cầu</h3>
-            <p class="text-xs text-gray-500 mb-5">Vui lòng để lại thông tin, bộ phận điều phối sẽ liên hệ hỗ trợ bạn trong thời gian sớm nhất.</p>
-
-            <form onsubmit="handleFormSubmit(event)" class="space-y-3 text-xs">
+            <form onsubmit="submitEnrollment(event)" class="p-6 overflow-y-auto space-y-4 text-slate-800">
                 <div>
-                    <label class="block font-bold text-gray-700 mb-1">Nhu Cầu Đăng Ký</label>
-                    <select id="modalSelect" class="w-full p-3 rounded-xl border border-gray-300 font-bold text-slate-800 focus:ring-2 focus:ring-sky-500 focus:outline-none">
-                        <option value="COP-H01">Học Nghề: Dọn Nhà Chuyên Nghiệp COP-H01 (1.2tr)</option>
-                        <option value="COP-CARE">Học Nghề: Hỗ Trợ Sinh Hoạt Chăm Sóc</option>
-                        <option value="SERVICE-CLEAN">Đặt Ca: Dọn Nhà Tiêu Chuẩn 3h (230k)</option>
-                        <option value="SERVICE-ELDERLY">Đặt Ca: Hỗ Trợ Cao Tuổi Tại Nhà 4h (330k)</option>
-                        <option value="SERVICE-HOSPITAL">Đặt Ca: Đồng Hành Bệnh Viện Ban Ngày (500k)</option>
-                        <option value="B2B">Doanh Nghiệp: Yêu Cầu Báo Giá Đào Tạo B2B</option>
+                    <label class="block text-xs font-extrabold text-slate-700 uppercase mb-1">Mô-đun đăng ký học</label>
+                    <select id="modalModuleSelect" onchange="updateModalFeeDisplay()" class="w-full bg-slate-50 border border-slate-200 text-sm rounded-xl p-3 font-medium">
+                        <option value="S01">S01 - Dọn dẹp chuyên nghiệp & SOP Hóa chất (3 ngày)</option>
+                        <option value="C01">C01 - Chăm sóc người cao tuổi / bệnh nhân phi y tế (4-5 ngày)</option>
+                        <option value="C02">C02 - Chăm sóc trẻ em an toàn (4 ngày)</option>
+                        <option value="H01">H01 - Nấu bữa cơm gia đình thực hành (3 ngày)</option>
+                        <option value="H02">H02 - Nội trợ và đưa đón trẻ (3 ngày)</option>
+                        <option value="COMBO_2">Combo 2 Kỹ Năng (2.800.000đ)</option>
+                        <option value="COMBO_3">Combo 3 Kỹ Năng (4.000.000đ)</option>
+                        <option value="COMBO_5">Combo 5 Kỹ Năng Trọn Bộ (6.000.000đ)</option>
                     </select>
                 </div>
 
-                <div>
-                    <label class="block font-bold text-gray-700 mb-1">Họ và Tên</label>
-                    <input type="text" required placeholder="Nguyễn Văn A" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-extrabold text-slate-700 uppercase mb-1">Họ và tên học viên</label>
+                        <input type="text" id="modalStudentName" required placeholder="Nguyễn Văn A" class="w-full bg-slate-50 border border-slate-200 text-sm rounded-xl p-2.5">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-extrabold text-slate-700 uppercase mb-1">Số điện thoại / Zalo</label>
+                        <input type="tel" id="modalStudentPhone" required placeholder="09x xxx xxxx" class="w-full bg-slate-50 border border-slate-200 text-sm rounded-xl p-2.5">
+                    </div>
                 </div>
 
                 <div>
-                    <label class="block font-bold text-gray-700 mb-1">Số Điện Thoại / Zalo Liên Hệ</label>
-                    <input type="tel" required placeholder="0912 xxx xxx" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                    <label class="block text-xs font-extrabold text-slate-700 uppercase mb-1">Địa chỉ sinh sống (Thanh Hóa)</label>
+                    <input type="text" id="modalStudentAddress" placeholder="Phường/Xã, Huyện/TP..." class="w-full bg-slate-50 border border-slate-200 text-sm rounded-xl p-2.5">
                 </div>
 
                 <div>
-                    <label class="block font-bold text-gray-700 mb-1">Địa Chỉ Khu Vực (Hạc Thành, Sầm Sơn...)</label>
-                    <input type="text" placeholder="Nhập địa chỉ hoặc khu vực phục vụ" class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:outline-none">
+                    <label class="block text-xs font-extrabold text-slate-700 uppercase mb-1">Hình thức học mong muốn</label>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <label class="flex items-center space-x-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+                            <input type="radio" name="studyForm" value="Ban ngày" checked class="text-cop-600">
+                            <span>Lớp Ban Ngày (Thứ 2-6)</span>
+                        </label>
+                        <label class="flex items-center space-x-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+                            <input type="radio" name="studyForm" value="Cuối tuần" class="text-cop-600">
+                            <span>Lớp Cuối Tuần (T7-CN)</span>
+                        </label>
+                    </div>
                 </div>
 
-                <div>
-                    <label class="block font-bold text-gray-700 mb-1">Ghi Chú Thêm</label>
-                    <textarea rows="2" placeholder="Thời gian mong muốn hoặc nội dung chi tiết..." class="w-full p-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:outline-none"></textarea>
+                <!-- Fee Display in Modal -->
+                <div class="p-4 rounded-2xl bg-cop-50 border border-cop-200 flex justify-between items-center">
+                    <div>
+                        <div class="text-xs font-bold text-cop-900">Học phí niêm yết dự kiến</div>
+                        <div class="text-[11px] text-slate-500">Chưa bao gồm ưu đãi tài trợ (nếu có)</div>
+                    </div>
+                    <div id="modalFeeDisplay" class="text-xl font-black text-cop-600">1.500.000 VNĐ</div>
                 </div>
 
-                <button type="submit" class="w-full gradient-cop text-white font-bold py-3.5 rounded-xl shadow-lg hover:brightness-105 transition text-xs mt-2">
-                    Gửi Đăng Ký Yêu Cầu
+                <div class="flex items-start space-x-2">
+                    <input type="checkbox" id="modalM10" checked required class="mt-1 text-cop-600">
+                    <label for="modalM10" class="text-[11px] text-slate-500">
+                        Xác nhận thông tin chính xác và đồng ý với điều khoản dữ liệu M10 của COP.
+                    </label>
+                </div>
+
+                <button type="submit" class="w-full bg-cop-600 hover:bg-cop-700 text-white font-extrabold py-3.5 rounded-xl shadow-lg transition">
+                    Xác Nhận Đăng Ký Khóa Học
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- Interactivity Script -->
+    <!-- MODAL 2: COP SERVICES BOOKING (M02 FORM) -->
+    <div id="serviceModal" class="fixed inset-0 z-50 hidden bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full shadow-2xl overflow-hidden relative max-h-[90vh] flex flex-col">
+            <div class="bg-slate-900 text-white p-6 relative">
+                <button onclick="closeModal('serviceModal')" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="text-cop-500 text-xs font-bold uppercase tracking-wider mb-1">COP Services Booking</div>
+                <h3 class="text-xl font-black text-white">Đặt Ca Phục Vụ Trực Tiếp (M02)</h3>
+            </div>
+
+            <form onsubmit="submitServiceBooking(event)" class="p-6 overflow-y-auto space-y-4 text-slate-800">
+                <div>
+                    <label class="block text-xs font-extrabold text-slate-700 uppercase mb-1">Loại dịch vụ chọn</label>
+                    <select id="serviceSelect" class="w-full bg-slate-50 border border-slate-200 text-sm rounded-xl p-3 font-medium">
+                        <option value="DV01">DV01 - Dọn nhà tiêu chuẩn 3h (230.000đ)</option>
+                        <option value="DV02">DV02 - Hỗ trợ người cao tuổi 4h (330.000đ)</option>
+                        <option value="DV03">DV03 - Hỗ trợ tại viện phi y tế 8h (500.000đ)</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-extrabold text-slate-700 uppercase mb-1">Tên khách hàng</label>
+                        <input type="text" id="custName" required placeholder="Nguyễn Văn A" class="w-full bg-slate-50 border border-slate-200 text-sm rounded-xl p-2.5">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-extrabold text-slate-700 uppercase mb-1">Số điện thoại</label>
+                        <input type="tel" id="custPhone" required placeholder="09x xxx xxxx" class="w-full bg-slate-50 border border-slate-200 text-sm rounded-xl p-2.5">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-extrabold text-slate-700 uppercase mb-1">Địa chỉ làm việc tại Thanh Hóa</label>
+                    <input type="text" id="custAddress" required placeholder="Số nhà, Đường, Phường/Xã..." class="w-full bg-slate-50 border border-slate-200 text-sm rounded-xl p-2.5">
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-extrabold text-slate-700 uppercase mb-1">Ngày thực hiện</label>
+                        <input type="date" id="custDate" required class="w-full bg-slate-50 border border-slate-200 text-sm rounded-xl p-2.5">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-extrabold text-slate-700 uppercase mb-1">Giờ bắt đầu</label>
+                        <input type="time" id="custTime" value="08:00" required class="w-full bg-slate-50 border border-slate-200 text-sm rounded-xl p-2.5">
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-slate-900 hover:bg-cop-600 text-white font-extrabold py-3.5 rounded-xl shadow-lg transition">
+                    Gửi Yêu Cầu Đặt Ca
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT CODE FOR INTERACTION -->
     <script>
-        function openModal(code) {
-            const select = document.getElementById('modalSelect');
-            if (select && code) select.value = code;
-            document.getElementById('actionModal').classList.remove('hidden');
+        // Set default date picker to tomorrow
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const dateInput = document.getElementById('custDate');
+        if (dateInput) dateInput.valueAsDate = tomorrow;
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileDrawer.classList.toggle('hidden');
+        });
+
+        // Fee Dictionary
+        const feeMap = {
+            'S01': 1500000,
+            'C01': 1500000,
+            'C02': 1500000,
+            'H01': 1500000,
+            'H02': 1500000,
+            'COMBO_2': 2800000,
+            'COMBO_3': 4000000,
+            'COMBO_5': 6000000
+        };
+
+        // Open Modal Generic
+        function openEnrollModal(moduleCode = 'S01') {
+            const modal = document.getElementById('enrollModal');
+            const select = document.getElementById('modalModuleSelect');
+            if (select && moduleCode) {
+                select.value = moduleCode;
+            }
+            updateModalFeeDisplay();
+            modal.classList.remove('hidden');
         }
 
-        function closeModal() {
-            document.getElementById('actionModal').classList.add('hidden');
+        function openServiceModal(serviceCode = 'DV01') {
+            const modal = document.getElementById('serviceModal');
+            const select = document.getElementById('serviceSelect');
+            if (select && serviceCode) {
+                select.value = serviceCode;
+            }
+            modal.classList.remove('hidden');
         }
 
-        function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        function openB2BModal() {
+            openEnrollModal('COMBO_5');
         }
 
-        function handleVerificationSearch(e) {
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+
+        // Update Modal Fee Display
+        function updateModalFeeDisplay() {
+            const val = document.getElementById('modalModuleSelect').value;
+            const fee = feeMap[val] || 1500000;
+            document.getElementById('modalFeeDisplay').innerText = fee.toLocaleString('vi-VN') + ' VNĐ';
+        }
+
+        // Select Combo Card Click Handler
+        function selectCombo(count) {
+            let code = 'S01';
+            if (count === 2) code = 'COMBO_2';
+            if (count === 3) code = 'COMBO_3';
+            if (count === 5) code = 'COMBO_5';
+            openEnrollModal(code);
+        }
+
+        // Interactive Fee Calculator Logic
+        function calculateCustomFee() {
+            const checkboxes = document.querySelectorAll('.calc-check:checked');
+            const count = checkboxes.length;
+            let rawTotal = count * 1500000;
+            let finalTotal = rawTotal;
+            let saved = 0;
+
+            if (count === 2) {
+                finalTotal = 2800000;
+                saved = 200000;
+            } else if (count === 3) {
+                finalTotal = 4000000;
+                saved = 500000;
+            } else if (count === 4) {
+                finalTotal = 5200000; // Discount 800k
+                saved = 800000;
+            } else if (count === 5) {
+                finalTotal = 6000000;
+                saved = 1500000;
+            }
+
+            document.getElementById('calcCount').innerText = count;
+            document.getElementById('calcSaved').innerText = saved.toLocaleString('vi-VN') + ' VNĐ';
+            document.getElementById('calcTotal').innerText = finalTotal.toLocaleString('vi-VN') + ' VNĐ';
+        }
+
+        function openEnrollWithCalc() {
+            const checkboxes = document.querySelectorAll('.calc-check:checked');
+            const count = checkboxes.length;
+            if (count === 0) {
+                openEnrollModal('S01');
+            } else if (count === 1) {
+                openEnrollModal(checkboxes[0].value);
+            } else if (count === 2) {
+                openEnrollModal('COMBO_2');
+            } else if (count === 3) {
+                openEnrollModal('COMBO_3');
+            } else {
+                openEnrollModal('COMBO_5');
+            }
+        }
+
+        // Handle Submissions
+        function handleHeroEnroll(e) {
             e.preventDefault();
-            const query = document.getElementById('certQuery').value;
-            if(!query) return;
-            document.getElementById('resName').innerText = query.length > 3 ? query : "Nguyễn Thị Mai";
-            document.getElementById('certResult').classList.remove('hidden');
+            const name = document.getElementById('heroStudentName').value;
+            const phone = document.getElementById('heroStudentPhone').value;
+            const moduleCode = document.getElementById('heroModuleSelect').value;
+
+            alert(`Cảm ơn học viên ${name}!\nYêu cầu tư vấn khóa học [${moduleCode}] của bạn đã được tiếp nhận.\nBộ phận tuyển sinh COP Academy sẽ liên hệ Zalo/SĐT ${phone} trong 30 phút.`);
+            document.getElementById('heroEnrollForm').reset();
         }
 
-        function handleFormSubmit(e) {
+        function submitEnrollment(e) {
             e.preventDefault();
-            alert('Cảm ơn bạn đã gửi yêu cầu! Bộ phận hỗ trợ COP Systems sẽ gọi điện tư vấn trực tiếp cho bạn.');
-            closeModal();
+            const name = document.getElementById('modalStudentName').value;
+            const phone = document.getElementById('modalStudentPhone').value;
+            const moduleVal = document.getElementById('modalModuleSelect').value;
+
+            alert(`ĐĂNG KÝ HỌC NGHỀ THÀNH CÔNG (Mẫu M05)!\n\nHọc viên: ${name}\nSĐT: ${phone}\nMô-đun đăng ký: ${moduleVal}\n\nCố vấn học tập COP sẽ gọi điện xác nhận lịch khai giảng và gửi bộ hướng dẫn nhập học.`);
+            closeModal('enrollModal');
+        }
+
+        function submitServiceBooking(e) {
+            e.preventDefault();
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const service = document.getElementById('serviceSelect').value;
+            const date = document.getElementById('custDate').value;
+
+            alert(`ĐẶT CA DỊCH VỤ THÀNH CÔNG (Mẫu M02)!\n\nKhách hàng: ${name}\nSĐT: ${phone}\nMã ca: ${service}\nNgày thực hiện: ${date}\n\nĐiều phối viên COP Services sẽ liên hệ xác nhận trong 15 phút.`);
+            closeModal('serviceModal');
         }
     </script>
-
 </body>
 </html>
